@@ -1,0 +1,89 @@
+<% include ../partials/header.ejs %>
+<div class="container">
+    <div class="row">
+        <div class="col-md-3">
+            <p class="lead">Authines</p>
+            <div class="list-group">
+                <li class="list-group-item active">Info 1</li>
+                <li class="list-group-item">Info 2</li>
+                <li class="list-group-item">Info 3</li>
+            </div>
+            <div id="map"></div>
+        </div>
+        <div class="col-md-9">
+            <div class="thumbnail">
+                <img class="img-responsive" src="<%= cuisine.image %>">
+                <div class="caption-full">
+                    <h4 class="pull-right">$<%= cuisine.cost %></h4>
+                    <h4><a><%=cuisine.name%></a></h4>
+                    <p><%= cuisine.description %></p>
+                    <p>
+                      <em>Submitted by: <a href="/user/<%= cuisine.author.id %>"><%= cuisine.author.username %></a>, <%= moment(cuisine.createdAt).fromNow() %></em>
+                    </p>
+                   <% if(currentUser && cuisine.author.id.equals(currentUser._id) || currentUser && currentUser.isAdmin){ %>    
+                      <a class="btn btn-xs btn-warning" href="/cuisines/<%= cuisine._id %>/edit">Edit</a>
+                      <form class="delete-form" action="/cuisines/<%= cuisine._id %>?_method=DELETE" method="POST">
+                            <button class="btn btn-xs btn-danger">Delete</button>
+                      </form>
+                    <% }%>
+                </div>
+            </div>
+            <div class="well">
+                <div class="text-right">
+                    <a class="btn btn-success" href="/cuisines/<%= cuisine._id %>/comments/new">Add New Comment</a>
+                </div>
+                <hr>
+                <% cuisine.comments.forEach(function(comment){ %>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <strong><%= comment.author.username %></strong>
+                            <span class="pull-right"><%= moment(comment.createdAt).fromNow() %></span>
+                            <p>
+                                <%= comment.text %> 
+                            </p>
+                        <% if(currentUser && comment.author.id.equals(currentUser._id) || currentUser && currentUser.isAdmin){ %>
+                            <a class="btn btn-xs btn-warning" 
+                               href="/cuisines/<%=cuisine._id %>/comments/<%=comment._id %>/edit">
+                                Edit
+                            </a>
+                            <form class="delete-form" action="/cuisines/<%=cuisine._id %>/comments/<%=comment._id %>?_method=DELETE" method="POST">
+                                <input type="submit" class="btn btn-xs btn-danger" value="Delete">
+                            </form>
+                         <% } %>
+                        </div>
+                    </div>
+                <% }) %>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+  function initMap() {
+    var lat = <%= cuisine.lat %>;
+    var lng = <%= cuisine.lng %>;
+    var center = {lat: lat, lng: lng };
+    var map = new google.maps.Map(document.getElementById('map'), {
+        zoom: 8,
+        center: center,
+        scrollwheel: false
+    });
+    var contentString = `
+      <strong><%= cuisine.name %><br />
+      <%= cuisine.location %></strong>
+      <p><%= cuisine.description %></p>
+    `
+    var infowindow = new google.maps.InfoWindow({
+      content: contentString
+    });
+    var marker = new google.maps.Marker({
+        position: center,
+        map: map
+    });
+    marker.addListener('click', function() {
+      infowindow.open(map, marker);
+    });
+  }
+</script>
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAK90bjibQ0nE6InKUgGExNL3Vde4n-C14&callback=initMap"></script>
+<% include ../partials/footer.ejs %>

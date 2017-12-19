@@ -1,0 +1,33 @@
+<% include  ../partials/header.ejs %>
+
+
+<div class="container"> 
+<header class="jumbotron">
+    <div class="container">
+        <h1> WELCOME TO AUTHINES</h1>
+        <p>Your reference to all authentic cuisines from all over the world!</p>
+        <P>
+            <a class="btn btn-primary btn-lrg" href="/cuisines/new"> Add New Cuisine</a>
+        </P>
+    </div>
+</header>
+
+
+    <div class="row text-center" style="display:flex; flex-wrap: wrap;">
+        <% cuisines.forEach(function(cuisines){ %>
+          
+           <div class="col-md-3 col-sm-6">
+               <div class="thumbnail">
+                   <img src="<%=cuisines.image %>">
+                   <div class="caption">
+                       <h4><%= cuisines.name %></h4>
+                   </div>
+                   <p>
+                       <a href="/cuisines/<%= cuisines._id %>" class="btn btn-primary">More Info</a>
+                   </p>
+               </div>
+           </div>
+        <% }); %>
+    </div>
+</div>
+<% include ../partials/footer.ejs %>

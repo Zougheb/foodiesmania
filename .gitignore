@@ -56,4 +56,6 @@ typings/
 
 # dotenv environment variables file
 .env
-
+YOUR-FILE-WITH-SENSITIVE-DATA
+YOUR-FILE-WITH-SENSITIVE-DATA
+cloudinary.env

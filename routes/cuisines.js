@@ -9,6 +9,9 @@
       callback(null, Date.now() + file.originalname);
     }
   });
+
+
+
   var imageFilter = function (req, file, cb) {
       // accept image files only
       if (!file.originalname.match(/\.(jpg|jpeg|png|gif)$/i)) {
@@ -19,10 +22,11 @@
   var upload = multer({ storage: storage, fileFilter: imageFilter})
 
   var cloudinary = require('cloudinary');
+
   cloudinary.config({
     cloud_name: 'dv6gbxbw2',
     api_key: process.env.CLOUDINARY_API_KEY,
-    api_secret: process.env.CLOUDINARY_API_SECRET
+    api_secret: process.env.CLOUDINARY_API_SECRET,
   });
 
   // INDEX ROUTE -- SHOW ALL CUISINES
@@ -39,10 +43,12 @@
 
   // CREATE -- ADD NEW CUISINE TO DB
   router.post("/cuisines",middleware.isLoggedIn, upload.single('image'), function(req,res){
-    geocoder.geocode(req.body.location, function (err, data) {
-      var lat        = data.results[0].geometry.location.lat;
-      var lng        = data.results[0].geometry.location.lng;
-      var location   = data.results[0].formatted_address;
+    geocoder.geocode(req.body.cuisine.location, function (err, data) {
+         if (data) {
+           var lat        = data.results[0].geometry.location.lat;
+           var lng        = data.results[0].geometry.location.lng;
+           var location   = data.results[0].formatted_address;
+         }
          cloudinary.uploader.upload(req.file.path, function(result) {
             // add cloudinary url for the image to the cuisine object under image property
             req.body.cuisine.image = result.secure_url;

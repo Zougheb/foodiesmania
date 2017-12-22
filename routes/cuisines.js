@@ -9,6 +9,9 @@
       callback(null, Date.now() + file.originalname);
     }
   });
+
+
+
   var imageFilter = function (req, file, cb) {
       // accept image files only
       if (!file.originalname.match(/\.(jpg|jpeg|png|gif)$/i)) {
@@ -19,10 +22,11 @@
   var upload = multer({ storage: storage, fileFilter: imageFilter})
 
   var cloudinary = require('cloudinary');
+
   cloudinary.config({
     cloud_name: 'dv6gbxbw2',
     api_key: process.env.CLOUDINARY_API_KEY,
-    api_secret: process.env.CLOUDINARY_API_SECRET
+    api_secret: process.env.CLOUDINARY_API_SECRET,
   });
 
   // INDEX ROUTE -- SHOW ALL CUISINES

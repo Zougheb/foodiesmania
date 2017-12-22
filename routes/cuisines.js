@@ -39,13 +39,27 @@
 
   // CREATE -- ADD NEW CUISINE TO DB
   router.post("/cuisines",middleware.isLoggedIn, upload.single('image'), function(req,res){
-    geocoder.geocode(req.body.location, function (err, data) {
+    // get data from form and add to data array
+    var name = req.body.name;
+    var image = req.body.image;
+    var cost = req.body.cost;
+    var desc = req.body.description;
+    var author = {
+      id: req.user._id,
+      username: req.user.username
+  };
+
+    //Location Code - Geocode Package
+    geocoder.geocode(req.body.cuisine.location, function (err, data) {
       var lat        = data.results[0].geometry.location.lat;
       var lng        = data.results[0].geometry.location.lng;
       var location   = data.results[0].formatted_address;
-         cloudinary.uploader.upload(req.file.path, function(result) {
+      var newCuisine = {name: name, image: image, description: desc, cost: cost, author:author, location: location, lat: lat, lng: lng};
+    cloudinary.uploader.upload(req.file.path, function(result) {
             // add cloudinary url for the image to the cuisine object under image property
             req.body.cuisine.image = result.secure_url;
+            //Captures All Objects And Stores Them
+            // var newCuisine = {name: name, image: image, description: desc, author:author, location: location, lat: lat, lng: lng};
             // add author to cuisine
             req.body.cuisine.author = {
               id: req.user._id,

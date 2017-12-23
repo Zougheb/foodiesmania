@@ -46,30 +46,27 @@
     // get data from form and add to data array
     var name = req.body.name;
     var image = req.body.image;
-    var cost = req.body.cost;
     var desc = req.body.description;
     var author = {
       id: req.user._id,
       username: req.user.username
-  };
-
+  }
+    var cost = req.body.cost;
     //Location Code - Geocode Package
-    geocoder.geocode(req.body.cuisine.location, function (err, data) {
+    geocoder.geocode(req.body.location, function (err, data) {
+      if (err || data.status === 'ZERO_RESULTS') {
+      req.flash('error', 'Invalid address');
+      return res.redirect('back');
+    }
       var lat        = data.results[0].geometry.location.lat;
       var lng        = data.results[0].geometry.location.lng;
       var location   = data.results[0].formatted_address;
-      var newCuisine = {name: name, image: image, description: desc, cost: cost, author:author, location: location, lat: lat, lng: lng};
+      var newCuisine = {name: name,  description: desc, cost: cost, author:author, location: location, lat: lat, lng: lng};
     cloudinary.uploader.upload(req.file.path, function(result) {
             // add cloudinary url for the image to the cuisine object under image property
-            req.body.cuisine.image = result.secure_url;
-            //Captures All Objects And Stores Them
-            // var newCuisine = {name: name, image: image, description: desc, author:author, location: location, lat: lat, lng: lng};
-            // add author to cuisine
-            req.body.cuisine.author = {
-              id: req.user._id,
-              username: req.user.username
-            }
-            Cuisine.create(req.body.cuisine, function(err, cuisine) {
+            newCuisine.image = result.secure_url;
+        
+            Cuisine.create(newCuisine, function(err, cuisine) {
               if (err) {
                 req.flash('error', err.message);
                 return res.redirect('back');

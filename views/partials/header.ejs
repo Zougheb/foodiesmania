@@ -24,14 +24,20 @@
           </div>
           <div id="navbar" class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
-              <li class="<%= typeof page !== 'undefined' && page === 'cuisines' ? 'active' : '' %>"><a href="/cuisines">Home</a></li>
-              <li><a class="btn btn-primary btn-lrg" href="/cuisines/new">Add new cuisines</a></li>
-              <li><input class="form-control" placeholder="Search" name="srch-term" id="srch-term" type="text"></li>
+              <li class="<%= typeof page !== 'undefined' && page === 'cuisines' ? 'active' : '' %>"><a href="/cuisines">Home</a>
+              </li>
+              <li class="<%= typeof page !== 'undefined' && page === 'cuisines' ? 'active' : '' %>"><a href="/cuisines/new">Add new cuisine</a>
+              </li>
+              <li><input class="form-control" placeholder="Search" name="srch-term" id="srch-term" type="text">
+              </li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <% if(!currentUser){ %>
-                    <li class="<%= typeof page !== 'undefined' && page === 'login' ? 'active' : '' %>"><a href="/login">Login</a></li>
-                    <li class="<%= typeof page !== 'undefined' && page === 'register' ? 'active' : '' %>"><a href="/register">Sign Up</a></li>
+                    <li class="<%= typeof page !== 'undefined' && page === 'login' ? 'active' : '' %>"
+                      ><a href="/login">Login</a>
+                    </li>
+                    <li class="<%= typeof page !== 'undefined' && page === 'register' ? 'active' : ''  %>"><a href="/register">Sign Up</a>
+                    </li>
                 <% } else { %>
                     <li><a href="#">Signed In As <%= currentUser.username %></a></li>
                     <li><a href="/logout">Logout</a></li>

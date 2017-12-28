@@ -35,7 +35,7 @@
                       comment.save();
                       cuisine.comments.push(comment);
                       cuisine.save();
-                      console.log(comment);
+                      // console.log(comment);
                       req.flash("success", "Successfully added comment");
                       res.redirect("/cuisines/" + cuisine._id);
                   }

@@ -71,7 +71,7 @@
                 req.flash('error', err.message);
                 return res.redirect('back');
               }
-              res.redirect('/cuisines/' + cuisine.id);
+              res.redirect('/cuisines');
             });
         });
     });
@@ -135,7 +135,7 @@
               res.redirect("back");
           } else {
               req.flash("success","Successfully Updated!");
-              res.redirect("/cuisines/" + cuisine._id);
+              es.redirect("/cuisines");
           }
       });
     });

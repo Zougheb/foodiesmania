@@ -14,6 +14,13 @@
     display: inline;
 }
 
+.like {
+	padding-top: 3ex;
+	padding-left: 3ex;
+}
+
+.preview{
+	padding:2.5ex;
 /* Google Maps */
 #map {
     height: 400px;

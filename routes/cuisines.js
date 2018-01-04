@@ -32,7 +32,7 @@
   // INDEX ROUTE -- SHOW ALL CUISINES
   router.get("/cuisines", function(req, res){
       // Get all cuisines from the DB
-      Cuisine.find({}, function(err, allCuisines){
+      Cuisine.find({}, null, {sort: '-createdAt'}, function(err, allCuisines){
           if(err){
               console.log(err);
           } else {

@@ -116,7 +116,7 @@
       req.flash('error', err.message);
       return res.redirect('back');
       }
-    console.log(data);
+    // console.log(data);
       var lat = data.results[0].geometry.location.lat;
       var lng = data.results[0].geometry.location.lng;
       var location = data.results[0].formatted_address;
@@ -135,7 +135,7 @@
               res.redirect("back");
           } else {
               req.flash("success","Successfully Updated!");
-              es.redirect("/cuisines");
+              res.redirect("/cuisines");
           }
       });
     });

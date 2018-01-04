@@ -16,7 +16,7 @@
               type: mongoose.Schema.Types.ObjectId,
               ref:"User"
           },
-          username: String
+          username: String,
       },
       comments:[
           {

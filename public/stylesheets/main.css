@@ -1,9 +1,11 @@
 .thumbnail img {
     width: 100%;
+
 }
 
 .thumbnail {
     padding: 0;
+    
 }
 
 .thumbnail .caption-full {
@@ -12,8 +14,9 @@
 
 .delete-form {
     display: inline;
-}
 
+
+}
 .like {
 	padding-top: 3ex;
 	padding-left: 3ex;
@@ -21,6 +24,11 @@
 
 .preview{
 	padding:2.5ex;
+
+}
+
+
+
 /* Google Maps */
 #map {
     height: 400px;

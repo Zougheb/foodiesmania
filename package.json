@@ -1,7 +1,6 @@
 {
   "name": "foodworldapp",
   "version": "1.0.0",
-  "description": "",
   "main": "app.js",
   "scripts": {
     "start": "node app.js"
@@ -18,6 +17,7 @@
     "express-sanitizer": "^1.0.2",
     "express-session": "^1.15.6",
     "geocoder": "^0.2.3",
+    "i": "^0.3.6",
     "method-override": "^2.3.10",
     "moment": "^2.19.3",
     "mongoose": "^4.12.6",
@@ -33,5 +33,7 @@
   "bugs": {
     "url": "https://github.com/Zougheb/ChillAndCook/issues"
   },
-  "homepage": "https://github.com/Zougheb/ChillAndCook#readme"
+  "homepage": "https://github.com/Zougheb/ChillAndCook#readme",
+  "devDependencies": {},
+  "description": ""
 }

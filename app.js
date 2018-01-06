@@ -19,7 +19,7 @@
       Cuisine        = require ("./models/cuisine"),
       Comment        = require ("./models/comment"),
       User           = require("./models/user"),
-      PORT           = process.env.PORT || 8081,
+      PORT           = process.env.PORT || 8080,
       dotenv         = require('dotenv').config(),
       seedDB         = require ("./seeds");
 

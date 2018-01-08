@@ -1,33 +1,53 @@
+body{
+    font-family: 'Merienda', cursive;
+    background-color: #fff7db;
+    color: #181008;
+}
+#title{
+    color: #dc8920;
+    font-size: 25px;
+}
+
 .thumbnail img {
     width: 100%;
-
+    height: 40%;
 }
 
 .thumbnail {
     padding: 0;
-    
+    border: 2px solid #181008;
+    border-radius: 20px 50px 50px 20px;
+    background-color: #fff7db;
 }
 
 .thumbnail .caption-full {
-    padding: 9px;
+    padding: 28px;
 }
 
 .delete-form {
     display: inline;
-
-
 }
+
+#edit_button, #delete_button{
+    background-color: #dc8920;
+}
+
 .like {
 	padding-top: 3ex;
 	padding-left: 3ex;
 }
 
-.preview{
-	padding:2.5ex;
-
+.navbar{
+    background-color: #181008;
 }
 
+.navbar-collapse li{
+    background-color: #181008;
+}
 
+.preview{
+	padding:2.5ex;
+}
 
 /* Google Maps */
 #map {
@@ -39,4 +59,23 @@
  box-shadow:none;
  -webkit-box-shadow:none;
  border-color:#cccccc;
+}
+
+#comment_button{
+    background-color: #181008;
+    border: 0px;
+    color: #dc8920;
+}
+
+.well{
+    background-color: #dc8920;
+    border: 2px solid #181008;
+    border: 0px;
+}
+
+
+.form-group button{
+    background-color: #181008;
+    color: #dc8920;
+    border: 0px;
 }

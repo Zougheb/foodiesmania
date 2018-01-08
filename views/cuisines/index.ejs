@@ -1,6 +1,6 @@
   <% include  ../partials/header.ejs %>
   <div class="container">
-  
+
        <!-- <div class="row text-center" style="display:flex ; flex-wrap: wrap;">  -->
           <% cuisines.forEach(function(cuisines){ %>
       <div class="row">
@@ -17,11 +17,12 @@
                  <div class="thumbnail">
                   <div class=" preview">
                     <a href="/user/<%= cuisines.author.id %>"><%= cuisines.author.username %>
+                    <!-- <a class="pull-right" href="/cuisines/<%= %>"><%= cuisines.location %></a> -->
                   </div>
                     <img class="img-responsive" src="<%= cuisines.image %>">
 
                       <div class="like">
-                        <a href="#" class="btn btn-default"><span class="glyphicon glyphicon-thumbs-up"></span></a>
+                        <a href="/cuisines/<%= cuisines%>" class="btn btn-default"><span id="heart" class="glyphicon glyphicon-heart-empty"></span></a>
                          <a href="/cuisines/<%= cuisines._id %>" class="btn btn-default"><span class="glyphicon glyphicon-info-sign"></span></a>
                      </div>
                   <div class="caption-full">
@@ -29,12 +30,12 @@
                       <h4><a href="/cuisines/<%= cuisines._id %>"><%=cuisines.name%></a></h4>
                       <p><%= cuisines.description %></p>
                       <p>
-                        <em>Submitted by: <a href="/user/<%= cuisines.author.id %>"><%= cuisines.author.username %></a>, <%= moment(cuisines.createdAt).fromNow() %></em>
+                        <em>Submitted by: <a href="/user/<%= cuisines.author.id %>"><%= cuisines.author.username %></a><br> <%= moment(cuisines.createdAt).fromNow() %></em>
                       </p>
                         <% if(currentUser && cuisines.author.id.equals(currentUser._id) || currentUser && currentUser.isAdmin){ %>
-                        <a href="/cuisines/<%= cuisines._id %>/edit" class="btn btn-default"><span class="glyphicon glyphicon-edit"></span>Edit</a>
+                        <a id="edit_button" href="/cuisines/<%= cuisines._id %>/edit" class="btn btn-default"><span class="glyphicon glyphicon-edit"></span>Edit</a>
                         <form class="delete-form" action="/cuisines/<%= cuisines._id %>?_method=DELETE" method="POST">
-                              <button class="btn btn-default"><span class="glyphicon glyphicon-trash"></span>Delete</button>
+                              <button id="delete_button" class="btn btn-default"><span class="glyphicon glyphicon-trash"></span>Delete</button>
                         </form>
                       <% }%>
                   </div>
@@ -44,5 +45,9 @@
       <!-- </div> -->
   </div>
 </div>
-
+<script>
+  $("#heart").on('click', function(){
+    $(this).attr(".glyphicon.glyphicon-heart-empty", ".glyphicon.glyphicon-heart-full")
+  })
+</script>
   <% include ../partials/footer.ejs %>

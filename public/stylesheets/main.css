@@ -9,8 +9,9 @@ body{
 }
 
 .thumbnail img {
-    width: 100%;
-    height: 40%;
+    width: auto !important;
+    height: 300px !important;
+    margin: 0 auto 1em auto;
 }
 
 .thumbnail {
@@ -78,4 +79,9 @@ body{
     background-color: #181008;
     color: #dc8920;
     border: 0px;
+}
+
+.like{
+    border:0px;
+    background-color: #fff7db;
 }

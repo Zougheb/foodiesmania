@@ -25,7 +25,8 @@
 
   // requiring routes
   var commentRoutes    = require("./routes/comments"),
-      cuisineRoutes = require("./routes/cuisines"),
+      cuisineRoutes    = require("./routes/cuisines"),
+      userRoutes       = require("./routes/user"),
       indexRoutes      = require("./routes/index");
 
   mongoose.Promise = global.Promise;
@@ -55,13 +56,14 @@
   app.use(function(req, res, next){
      res.locals.currentUser = req.user;
      res.locals.error = req.flash("error");
-    res.locals.success = req.flash("success");
+     res.locals.success = req.flash("success");
      next();
   });
 
   app.use(indexRoutes);
   app.use(cuisineRoutes);
   app.use(commentRoutes);
+  app.use(userRoutes);
 
   app.listen(PORT, function(){
       console.log("APP Listening on PORT: " + PORT);

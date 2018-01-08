@@ -27,13 +27,13 @@
                      </div>
                   <div class="caption-full">
                       <h4 class="pull-right">$<%= cuisines.cost %></h4>
-                      <h4><a href="/cuisines/<%= cuisines._id %>"><%=cuisines.name%></a></h4>
+                      <h4><a id="cuisine_name" href="/cuisines/<%= cuisines._id %>"><%=cuisines.name%></a></h4>
                       <!-- <p><%= cuisines.description %></p> -->
                       <p>
-                        <em><a href="/user/<%= cuisines.author.id %>"><%= cuisines.author.username %></a></em>
+                        <em><a href="/user/<%= cuisines.author.id %>">@<%= cuisines.author.username %></a></em>
                       </p>
                       <p><%= cuisines.description %></p>
-                      <%= moment(cuisines.createdAt).fromNow() %><br>
+                      <div id="moment"><%= moment(cuisines.createdAt).fromNow().toUpperCase() %></div><br>
                         <% if(currentUser && cuisines.author.id.equals(currentUser._id) || currentUser && currentUser.isAdmin){ %>
                         <a id="edit_button" href="/cuisines/<%= cuisines._id %>/edit" class="btn btn-default"><span class="glyphicon glyphicon-edit"></span>Edit</a>
                         <form class="delete-form" action="/cuisines/<%= cuisines._id %>?_method=DELETE" method="POST">

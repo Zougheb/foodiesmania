@@ -17,7 +17,7 @@ body{
 .thumbnail {
     padding: 0;
     border: 2px solid #181008;
-    border-radius: 20px 50px 50px 20px;
+    /* border-radius: 20px 50px 50px 20px; */
     background-color: #fff7db;
 }
 
@@ -84,4 +84,13 @@ body{
 .like{
     border:0px;
     background-color: #fff7db;
+}
+
+#moment{
+    font-size: 10px;
+}
+
+
+#cuisine_name{
+    font-size: 25px;
 }

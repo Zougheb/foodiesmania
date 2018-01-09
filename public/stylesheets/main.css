@@ -95,10 +95,6 @@ body{
     font-size: 25px;
 }
 
-#heart {
-    float:left;
-}
-
 .like .btn{
     border: 0px;
     background: transparent;
@@ -114,4 +110,9 @@ body{
 
 .navbar-default .navbar-collapse, .navbar-default .navbar-form {
     border-color: #fff7db;
+}
+
+
+.glyphicon-heart{
+    color: #181008;
 }

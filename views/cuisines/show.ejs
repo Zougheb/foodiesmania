@@ -2,24 +2,27 @@
   <div class="container">
       <div class="row">
           <div class="col-md-3">
-              <p class="lead">Foodies</p>
+              <!-- <p class="lead">Foodies</p>
               <div class="list-group">
                   <li class="list-group-item active">Info 1</li>
                   <li class="list-group-item">Info 2</li>
                   <li class="list-group-item">Info 3</li>
-              </div>
+              </div> -->
               <div id="map"></div>
+              <br><br>
           </div>
           <div class="col-md-9">
               <div class="thumbnail">
                   <img class="img-responsive" src="<%= cuisine.image %>">
                   <div class="caption-full">
                       <h4 class="pull-right">$<%= cuisine.cost %></h4>
-                      <h4><a><%=cuisine.name%></a></h4>
-                      <p><%= cuisine.description %></p>
+                      <h4><a id="cuisine_name"><%=cuisine.name%></a></h4>
+                      <!-- <p><%= cuisine.description %></p> -->
                       <p>
-                        <em>Submitted by: <a href="/user/<%= cuisine.author.id %>"><%= cuisine.author.username %></a>, <%= moment(cuisine.createdAt).fromNow() %></em>
+                        <em><a href="/user/<%= cuisine.author.id %>">@<%= cuisine.author.username %></a></em>
                       </p>
+                      <p><%= cuisine.description %></p>
+                      <div id="moment"><%= moment(cuisine.createdAt).fromNow().toUpperCase() %></div><br><hr>
                      <% if(currentUser && cuisine.author.id.equals(currentUser._id) || currentUser && currentUser.isAdmin){ %>
                         <a class="btn btn-xs btn-warning" href="/cuisines/<%= cuisine._id %>/edit">Edit</a>
                         <form class="delete-form" action="/cuisines/<%= cuisine._id %>?_method=DELETE" method="POST">
@@ -32,14 +35,14 @@
       <div class="well">
           <!--Setting up the add new comment button that is used for collapsing-->
           <div class="text-right">
-            <a class="btn btn-success pull-right" role="button" data-toggle="collapse" href="#collapseComment" aria-expanded="false" aria-controls="collapseComment">
+            <a id="comment_button" class="btn btn-success pull-right" role="button" data-toggle="collapse" href="#collapseComment" aria-expanded="false" aria-controls="collapseComment">
               <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Add new comment</a>
           </div>
           <h4><strong>Comments <span class="glyphicon glyphicon glyphicon-comment" aria-hidden="true"></span></strong></h4>
 
   <!--Collapse Add a comment form START-->
   <div class="collapse" id="collapseComment">
-    <div class="well" style="border-left: 5px solid #00C851;">
+    <div class="well">
         <% if(!currentUser) { %>
       <!--If the user is not logged in, direct him to the login page-->
       <h5>You need to login before you can comment. <a href="/login">Click here</a> to go to the login page.</h5>
@@ -50,7 +53,7 @@
       <form id="add-comment-form" action="/cuisines/<%= cuisine._id %>/comments" method="POST">
         <div class="form-group">
           <input class="form-control" type="text" disabled value="<%= currentUser.username %>">
-        </div>
+        <!-- </div> -->
         <div class="form-group">
           <textarea class="form-control" name="comment[text]" placeholder="Write your comment..." form="add-comment-form" rows="5" cols="70"></textarea>
         </div>
@@ -65,7 +68,7 @@
                   <hr>
                   <!--Check if there are comments, if there are none say no comments.-->
                    <% if (cuisine.comments.length === 0) { %>
-                 <em style="color: grey;">No comments yet.</em>
+                 <em id="place_holder" style="color: #fff7db;">No comments yet</em>
                    <% } %>
 <!-- Display comments by looping through them -->
   <% cuisine.comments.forEach(function(comment){ %>
@@ -82,10 +85,12 @@
            <!--Print out the author username-->
              <%= comment.author.username %>
          </strong>
-         <!--Show when the comment was made-->
-         <span class="pull-right"><%= moment(comment.createdAt).fromNow() %></span>
+
          <!--Printing the comment-->
          <p><%= comment.text %></p>
+         <!--Show when the comment was made-->
+         <span class="pull-left"><div id="moment"><%= moment(comment.createdAt).fromNow().toUpperCase() %></div></span><br>
+         <br>
          <!--If the visitor is logged in and the owner of the comment, show the edit and delete buttons-->
            <% if (currentUser && currentUser._id.equals(comment.author.id)) { %>
          <!--Edit button used for collapsing the edit comment form-->
@@ -113,13 +118,16 @@
            </div>
          </div>
            <% } %>
-         <hr>
+         <!-- <hr> -->
        </div>
      </div>
      <% }) %>
  </div>
+</div>
  <!--COMMENT SECTION END-->
-
+</div>
+</div>
+</div>
   <script>
     function initMap() {
       var lat = <%= cuisine.lat %>;

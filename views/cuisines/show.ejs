@@ -18,9 +18,9 @@
                       <h4 class="pull-right">$<%= cuisine.cost %></h4>
                       <h4><a id="cuisine_name"><%=cuisine.name%></a></h4>
                       <!-- <p><%= cuisine.description %></p> -->
-                      <p>
+                      <!-- <p>
                         <em><a href="/user/<%= cuisine.author.id %>">@<%= cuisine.author.username %></a></em>
-                      </p>
+                      </p> -->
                       <p><%= cuisine.description %></p>
                       <div id="moment"><%= moment(cuisine.createdAt).fromNow().toUpperCase() %></div><br><hr>
                      <% if(currentUser && cuisine.author.id.equals(currentUser._id) || currentUser && currentUser.isAdmin){ %>

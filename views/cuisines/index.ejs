@@ -16,22 +16,22 @@
              <div class="col-md-9" >
                  <div class="thumbnail">
                   <div class=" preview">
-                    <a href="/user/<%= cuisines.author.id %>"><%= cuisines.author.username %>
+                    <a href="/user/<%= cuisines.author.id %>">@<%= cuisines.author.username %>
                     <!-- <a class="pull-right" href="/cuisines/<%= %>"><%= cuisines.location %></a> -->
                   </div>
                     <img class="img-responsive" src="<%= cuisines.image %>">
 
                       <div class="like">
-                        <a href="#" class="btn btn-default"><span id="heart" class="glyphicon glyphicon-heart-empty" aria-hidden="true"></span></a>
+                        <a class="btn btn-default like-button"><span class="glyphicon glyphicon-heart-empty" aria-hidden="true"></span></a>
                          <a href="/cuisines/<%= cuisines._id %>" class="btn btn-default"><span class="glyphicon glyphicon-info-sign"></span></a>
                      </div>
                   <div class="caption-full">
                       <h4 class="pull-right">$<%= cuisines.cost %></h4>
                       <h4><a id="cuisine_name" href="/cuisines/<%= cuisines._id %>"><%=cuisines.name%></a></h4>
                       <!-- <p><%= cuisines.description %></p> -->
-                      <p>
+                      <!-- <p>
                         <em><a href="/user/<%= cuisines.author.id %>">@<%= cuisines.author.username %></a></em>
-                      </p>
+                      </p> -->
                       <p><%= cuisines.description %></p>
                       <div id="moment"><%= moment(cuisines.createdAt).fromNow().toUpperCase() %></div><br>
                         <% if(currentUser && cuisines.author.id.equals(currentUser._id) || currentUser && currentUser.isAdmin){ %>
@@ -47,12 +47,13 @@
       <!-- </div> -->
   </div>
 </div>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 <script>
   $(function($) {
-  $(document).on('click', '#heart', function(event) {
-    var target = $(event.target).closest('.wrapper');
-    target.find('.glyphicon').toggleClass('glyphicon-heart-empty glyphicon-heart');
+  $(document).on('click', '.like-button', function(event) {
+    console.log('gettin')
+    var $target = $(event.target);
+    console.log($target);
+    $target.toggleClass('glyphicon-heart-empty glyphicon-heart');
   });
 });
 </script>

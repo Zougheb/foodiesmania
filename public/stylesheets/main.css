@@ -10,7 +10,7 @@ body{
 
 .thumbnail img {
     width: auto !important;
-    height: 300px !important;
+    height: 250px !important;
     margin: 0 auto 1em auto;
 }
 
@@ -93,4 +93,21 @@ body{
 
 #cuisine_name{
     font-size: 25px;
+}
+
+#heart {
+    float:left;
+}
+
+.like .btn{
+    border: 0px;
+    background: transparent;
+    font-size: 23px;
+    color: #181008;
+    cursor: pointer;
+    border-radius: 2px;
+    line-height: 0.5;
+    border: none;
+    outline:none;
+    padding: 0px;
 }

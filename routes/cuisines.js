@@ -9,6 +9,9 @@
       callback(null, Date.now() + file.originalname);
     }
   });
+
+
+
   var imageFilter = function (req, file, cb) {
       // accept image files only
       if (!file.originalname.match(/\.(jpg|jpeg|png|gif)$/i)) {
@@ -19,16 +22,17 @@
   var upload = multer({ storage: storage, fileFilter: imageFilter})
 
   var cloudinary = require('cloudinary');
+
   cloudinary.config({
     cloud_name: 'dv6gbxbw2',
     api_key: process.env.CLOUDINARY_API_KEY,
-    api_secret: process.env.CLOUDINARY_API_SECRET
+    api_secret: process.env.CLOUDINARY_API_SECRET,
   });
 
   // INDEX ROUTE -- SHOW ALL CUISINES
   router.get("/cuisines", function(req, res){
       // Get all cuisines from the DB
-      Cuisine.find({}, function(err, allCuisines){
+      Cuisine.find({}, null, {sort: '-createdAt'}, function(err, allCuisines){
           if(err){
               console.log(err);
           } else {
@@ -39,28 +43,40 @@
 
   // CREATE -- ADD NEW CUISINE TO DB
   router.post("/cuisines",middleware.isLoggedIn, upload.single('image'), function(req,res){
+    // get data from form and add to data array
+    var name = req.body.name;
+    var image = req.body.image;
+    var desc = req.body.description;
+    var author = {
+      id: req.user._id,
+      username: req.user.username
+  }
+    var cost = req.body.cost;
+    //Location Code - Geocode Package
     geocoder.geocode(req.body.location, function (err, data) {
+      if (err || data.status === 'ZERO_RESULTS') {
+      req.flash('error', 'Invalid address');
+      return res.redirect('back');
+    }
       var lat        = data.results[0].geometry.location.lat;
       var lng        = data.results[0].geometry.location.lng;
       var location   = data.results[0].formatted_address;
-         cloudinary.uploader.upload(req.file.path, function(result) {
+      var newCuisine = {name: name,  description: desc, cost: cost, author:author, location: location, lat: lat, lng: lng};
+    cloudinary.uploader.upload(req.file.path, function(result) {
             // add cloudinary url for the image to the cuisine object under image property
-            req.body.cuisine.image = result.secure_url;
-            // add author to cuisine
-            req.body.cuisine.author = {
-              id: req.user._id,
-              username: req.user.username
-            }
-            Cuisine.create(req.body.cuisine, function(err, cuisine) {
+            newCuisine.image = result.secure_url;
+        
+            Cuisine.create(newCuisine, function(err, cuisine) {
               if (err) {
                 req.flash('error', err.message);
                 return res.redirect('back');
               }
-              res.redirect('/cuisines/' + cuisine.id);
+              res.redirect('/cuisines');
             });
         });
     });
 });
+
 
   // NEW -- SHOW FORM TO CREATE NEW CUISINES
        router.get("/cuisines/new",middleware.isLoggedIn, function(req, res){
@@ -100,7 +116,7 @@
       req.flash('error', err.message);
       return res.redirect('back');
       }
-    console.log(data);
+    // console.log(data);
       var lat = data.results[0].geometry.location.lat;
       var lng = data.results[0].geometry.location.lng;
       var location = data.results[0].formatted_address;
@@ -119,7 +135,7 @@
               res.redirect("back");
           } else {
               req.flash("success","Successfully Updated!");
-              res.redirect("/cuisines/" + cuisine._id);
+              res.redirect("/cuisines");
           }
       });
     });

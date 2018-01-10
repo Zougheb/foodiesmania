@@ -46,3 +46,9 @@
  -webkit-box-shadow:none;
  border-color:#cccccc;
 }
+
+
+.navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:focus, .navbar-default .navbar-nav>.active>a:hover {
+    color: #ddd;
+    background-color: #555;
+}

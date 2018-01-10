@@ -34,6 +34,9 @@
 	color: #ddd;
 	font-size: 16px;
 }
+#home-li {
+	background-color: #555 !important;
+}
 
 /* Google Maps */
 #map {

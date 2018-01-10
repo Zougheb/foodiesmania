@@ -63,7 +63,15 @@ li a {
     font-family: 'Berkshire Swash', cursive;
     text-shadow: 1px 1px #000;
 }
-#profile-col1 {
-	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
-
+#profile-col1 h3 {
+	font-family: "Cambria",Helvetica,Arial,sans-serif;
+}
+#profile-col1 h5 {
+	font-family: "Cambria",Helvetica,Arial,sans-serif;
+}
+#profile-col2 h3 {
+	font-family: "Cambria",Helvetica,Arial,sans-serif;
+}
+#profile-col2 li {
+	font-family: "Cambria",Helvetica,Arial,sans-serif;
 }

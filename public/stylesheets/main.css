@@ -2,32 +2,38 @@
     width: 100%;
 
 }
-
 .thumbnail {
     padding: 0;
     
 }
-
 .thumbnail .caption-full {
     padding: 9px;
 }
-
 .delete-form {
     display: inline;
-
-
 }
 .like {
 	padding-top: 3ex;
 	padding-left: 3ex;
 }
-
 .preview{
 	padding:2.5ex;
-
 }
 
-
+.navbar-default {
+	background-color: #555;
+	color: #fff !important;
+}
+.navbar-brand {
+	color: #5cb85c !important;
+	font-size: 30px;
+	font-family: 'Berkshire Swash', cursive;
+	text-shadow: 1px 1px #000;
+}
+.navbar-default .navbar-nav>li>a {
+	color: #ddd;
+	font-size: 16px;
+}
 
 /* Google Maps */
 #map {

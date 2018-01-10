@@ -1,6 +1,6 @@
   <% include ../partials/header%>
 
-  <div class="row">
+  <div class="row container">
       <div class="col-md-4" id="profile-col1">
            <h3><%= user.username%></h3>
           <div class="thumbnail" id="prof-img-container">
@@ -20,21 +20,29 @@
       </div>
         
       </div>
-      <div class="col-md-7" id="profile-col2">
+      <div class="col-md-8" id="profile-col2">
           <h3 id='profile-header'><%= user.username %>'s shared photos:</h3>
-          <ul>
+          <ul class='cuisine-list'>
               <%  cuisines.forEach(function(cuisine) { 
               %>
-              <li><a href="/cuisines/<%= cuisine.id %>"><%= cuisine.name %></a>
+              <li>
+                <div class="cuisine-info-container">
                     <img class="img-responsive" src="<%= cuisine.image %>">
-                    <p>Posted on: <%= moment(cuisines.createdAt) %></p>
-                    <p>Location: <%= cuisine.location %></p>
+                    <div class="cuisine-info-cover">
+                      <a href="/cuisines/<%= cuisine.id %>"><%= cuisine.name %></a><br>
+                      Posted on: <%= moment(cuisines.createdAt) %><br>
+                      Location: <%= cuisine.location %><br>
+                    </div>
+                </div>
 
               </li>
               <% }); %>
           </ul>
       </div>
   </div>
-
   <iframe id='picupload' style='width:0px;height:0px' name='picupload' ></iframe>
+
   <% include  ../partials/footer%>
+  <footer class="profile-footer">
+    <div>Copyright &copy; 2018 | <span class="footer-brand">Foodies<span></div>
+ </footer>

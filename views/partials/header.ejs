@@ -2,13 +2,12 @@
   <html>
       <head>
           <!-- Make site responsive on mobile/tablet -->
-
-
           <meta name="viewport" content="width=device-width, initial-scale=1">
           <title>Foodies</title>
           <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
           <link rel="stylesheet" href="/stylesheets/main.css">
           <link rel="stylesheet" href="/stylesheets/profile.css">
+          <link href="https://fonts.googleapis.com/css?family=Berkshire+Swash|Pacifico" rel="stylesheet">
 
       </head>
       <body>
@@ -25,13 +24,11 @@
               <a class="navbar-brand" href="/">Foodies</a>
           </div>
           <div id="navbar" class="collapse navbar-collapse">
-            <ul class="nav navbar-nav">
+            <ul class="nav navbar-nav navbar-right">
               <li class="<%= typeof page !== 'undefined' && page === 'cuisines' ? 'active' : '' %>"><a href="/cuisines">Home</a>
               </li>
               <li class="<%= typeof page !== 'undefined' && page === 'cuisines' ? 'active' : '' %>"><a href="/cuisines/new">Add new cuisine</a>
               </li>
-            </ul>
-            <ul class="nav navbar-nav navbar-right">
                 <% if(!currentUser){ %>
                     <li class="<%= typeof page !== 'undefined' && page === 'login' ? 'active' : '' %>"
                       ><a href="/login">Login</a>

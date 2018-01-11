@@ -25,8 +25,8 @@
 
   cloudinary.config({
     cloud_name: 'dv6gbxbw2',
-    api_key: process.env.CLOUDINARY_API_KEY || '794191886163984' ,
-    api_secret: process.env.CLOUDINARY_API_SECRET || 'NlHjRdHtzmsuvdidSF-ZLY-OqSQ',
+    api_key: process.env.CLOUDINARY_API_KEY,
+    api_secret: process.env.CLOUDINARY_API_SECRET,
   });
 
   // INDEX ROUTE -- SHOW ALL CUISINES
@@ -65,7 +65,7 @@
     cloudinary.uploader.upload(req.file.path, function(result) {
             // add cloudinary url for the image to the cuisine object under image property
             newCuisine.image = result.secure_url;
-        
+
             Cuisine.create(newCuisine, function(err, cuisine) {
               if (err) {
                 req.flash('error', err.message);

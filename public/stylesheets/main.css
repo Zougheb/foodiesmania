@@ -53,9 +53,9 @@ body{
  border-color:#cccccc;
 }
 
-.navbar-default .navbar-collapse, .navbar-default .navbar-form {
+/* .navbar-default .navbar-collapse, .navbar-default .navbar-form {
     border-color: #555;
-}
+} */
 
 .navbar-default .navbar-nav>li>a{
     color: #ddd;

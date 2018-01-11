@@ -33,7 +33,7 @@
               return res.redirect("/register");
           }
           passport.authenticate("local")(req, res, function(){
-              req.flash("success", "Welcome to Authines " + user.username);
+              req.flash("success", "Welcome to Foodsnap " + user.username);
               res.redirect("/cuisines");
           });
       });
@@ -60,6 +60,6 @@
   });
 
 // USER PROFILE
- 
+
 
   module.exports = router;

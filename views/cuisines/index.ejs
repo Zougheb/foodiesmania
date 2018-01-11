@@ -1,50 +1,36 @@
-  <% include  ../partials/header.ejs %>
-  <div class="container">
-
-       <!-- <div class="row text-center" style="display:flex ; flex-wrap: wrap;">  -->
-          <% cuisines.forEach(function(cuisines){
-          %>
-
-      <div class="row">
-          <!-- div class="col-md-3"> -->
-              <!-- <p class="lead">Foodies</p>
-              <div class="list-group">
-                  <li class="list-group-item active">Info 1</li>
-                  <li class="list-group-item">Info 2</li>
-                  <li class="list-group-item">Info 3</li> -->
-            <!--   </div> -->
-              <!-- <div id="map"></div> -->
-          </div>
-             <div class="col-md-9" >
-                 <div class="thumbnail">
-                  <div class=" preview">
-                    <a href="/user/<%= cuisines.author.id %>"><%= cuisines.author.username %>
-                  </div>
-                    <img class="img-responsive" src="<%= cuisines.image %>">
-
-                      <div class="like">
-                        <a href="#" class="btn btn-default like-button"><span class="glyphicon glyphicon-heart-empty"></span></a>
-                         <a href="/cuisines/<%= cuisines._id %>" class="btn btn-default"><span class="glyphicon glyphicon-info-sign"></span></a>
-                     </div>
-                  <div class="caption-full">
-                      <h4 class="pull-right">$<%= cuisines.cost %></h4>
-                      <h4><a href="/cuisines/<%= cuisines._id %>"><%=cuisines.name%></a></h4>
-                      <p><%= cuisines.description %></p>
-                      <p>
-                        <em><a href="/user/<%= cuisines.author.id %>"><%= cuisines.author.username %></a>, <%= moment(cuisines.createdAt).fromNow() %></em>
-                      </p>
-                        <% if(currentUser && cuisines.author.id.equals(currentUser._id) || currentUser && currentUser.isAdmin){ %>
-                        <a href="/cuisines/<%= cuisines._id %>/edit" class="btn btn-default"><span class="glyphicon glyphicon-edit"></span>Edit</a>
+<% include  ../partials/header.ejs %>
+<div class="container">
+    <% cuisines.forEach(function(cuisines){%>
+    <div class="row">
+        <div class="col-md-8">
+            <div class="image-container">
+                <img class="img-responsive" src="<%= cuisines.image %>">
+                <div class="like">
+                    <a href="#" class="btn btn-default like-button"><span class="glyphicon glyphicon-heart-empty"></span></a>
+                    <a href="/cuisines/<%= cuisines._id %>" class="btn btn-default"><span class="glyphicon glyphicon-info-sign"></span></a>
+                </div>
+                <div class="caption-full">
+                    <h4 class="pull-right">$<%= cuisines.cost %></h4>
+                    <h4><a href="/cuisines/<%= cuisines._id %>"><%=cuisines.name%></a></h4>
+                    <p><%= cuisines.description %></p>
+                    <p><em><a href="/user/<%= cuisines.author.id %>"><%= cuisines.author.username %></a>, <%= moment(cuisines.createdAt).fromNow() %></em></p>
+                    <% if(currentUser && cuisines.author.id.equals(currentUser._id) || currentUser && currentUser.isAdmin){ %>
+                    <a href="/cuisines/<%= cuisines._id %>/edit" class="btn btn-default">
+                        <span class="glyphicon glyphicon-edit"></span>Edit</a>
                         <form class="delete-form" action="/cuisines/<%= cuisines._id %>?_method=DELETE" method="POST">
                               <button class="btn btn-default"><span class="glyphicon glyphicon-trash"></span>Delete</button>
                         </form>
                       <% }%>
-                  </div>
-                 </div>
-             </div>
-          <% }); %>
-      <!-- </div> -->
-  </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class=" preview">
+                    <a href="/user/<%= cuisines.author.id %>"><%= cuisines.author.username %></a>
+                </div>
+        </div>
+        <% }); %>
+    </div>
 </div>
 <script>
   $(function($) {

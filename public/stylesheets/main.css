@@ -1,14 +1,7 @@
-.thumbnail img {
+.image-container img {
     width: 100%;
+}
 
-}
-.thumbnail {
-    padding: 0;
-
-}
-.thumbnail .caption-full {
-    padding: 9px;
-}
 .delete-form {
     display: inline;
 }
@@ -19,7 +12,6 @@
 .preview{
 	padding:2.5ex;
 }
-
 .navbar-default {
 	background-color: #555;
 	color: #fff !important;
@@ -33,9 +25,6 @@
 .navbar-default .navbar-nav>li>a {
 	color: #ddd;
 	font-size: 16px;
-}
-#home-li {
-	background-color: #555 !important;
 }
 
 /* Google Maps */

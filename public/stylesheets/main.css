@@ -72,3 +72,7 @@ a:hover{
 a.glyphicon-heart-empty{
     color: #333;
 }
+#cuisine-name {
+	color: #5cb85c;
+	text-shadow: 1px 1px #000;
+}

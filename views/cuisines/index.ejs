@@ -14,9 +14,10 @@
         <div class="col-md-4">
             <div class="preview">
                 <div class="caption-full">
-                    <h4><a href="/cuisines/<%= cuisines._id %>"><%=cuisines.name%></a></h4>
+                    <h4><a id="cuisine-name" href="/cuisines/<%= cuisines._id %>"><%=cuisines.name%></a></h4>
                     <p><%= cuisines.description %></p>
-                    <p><em><a href="/user/<%= cuisines.author.id %>"><%= cuisines.author.username %></a>, <%= moment(cuisines.createdAt).fromNow() %></em></p>
+                    <p>Cost: <%=cuisines.cost%></p>
+                    <p><em><a href="/user/<%= cuisines.author.id %>">@<%= cuisines.author.username %></a>, <%= moment(cuisines.createdAt).fromNow() %></em></p>
                     <span class="btn btn-default like-button"><a class="glyphicon glyphicon-heart-empty"></a></span>
                     <a href="/cuisines/<%= cuisines._id %>" class="btn btn-default"><span class="glyphicon glyphicon-info-sign"></span></a>
                     <% if(currentUser && cuisines.author.id.equals(currentUser._id) || currentUser && currentUser.isAdmin){ %>

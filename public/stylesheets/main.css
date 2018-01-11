@@ -1,7 +1,12 @@
-.image-container img {
+.thumbnail img {
     width: 100%;
 }
-
+.thumbnail {
+    padding: 0;
+}
+.thumbnail .caption-full {
+    padding: 9px;
+}
 .delete-form {
     display: inline;
 }
@@ -10,7 +15,7 @@
 	padding-left: 3ex;
 }
 .preview{
-	padding:2.5ex;
+	border: 1px solid #eee;
 }
 .navbar-default {
 	background-color: #555;
@@ -37,10 +42,4 @@
  box-shadow:none;
  -webkit-box-shadow:none;
  border-color:#cccccc;
-}
-
-
-.navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:focus, .navbar-default .navbar-nav>.active>a:hover {
-    color: #ddd;
-    background-color: #555;
 }

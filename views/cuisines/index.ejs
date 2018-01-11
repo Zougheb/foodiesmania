@@ -3,12 +3,18 @@
     <% cuisines.forEach(function(cuisines){%>
     <div class="row">
         <div class="col-md-8">
-            <div class="image-container">
+            <div class="thumbnail">
                 <img class="img-responsive" src="<%= cuisines.image %>">
                 <div class="like">
                     <a href="#" class="btn btn-default like-button"><span class="glyphicon glyphicon-heart-empty"></span></a>
                     <a href="/cuisines/<%= cuisines._id %>" class="btn btn-default"><span class="glyphicon glyphicon-info-sign"></span></a>
                 </div>
+                
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="preview">By
+                <a href="/user/<%= cuisines.author.id %>"><%= cuisines.author.username %></a>
                 <div class="caption-full">
                     <h4 class="pull-right">$<%= cuisines.cost %></h4>
                     <h4><a href="/cuisines/<%= cuisines._id %>"><%=cuisines.name%></a></h4>
@@ -23,11 +29,6 @@
                       <% }%>
                 </div>
             </div>
-        </div>
-        <div class="col-md-4">
-            <div class=" preview">
-                    <a href="/user/<%= cuisines.author.id %>"><%= cuisines.author.username %></a>
-                </div>
         </div>
         <% }); %>
     </div>

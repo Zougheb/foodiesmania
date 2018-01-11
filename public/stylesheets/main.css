@@ -51,3 +51,16 @@ body{
  -webkit-box-shadow:none;
  border-color:#cccccc;
 }
+
+.navbar-default .navbar-collapse, .navbar-default .navbar-form {
+    border-color: #555;
+}
+
+.navbar-default .navbar-nav>li>a{
+    color: #ddd;
+}
+
+.navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:focus, .navbar-default .navbar-nav>.active>a:hover {
+    color:#ddd;
+    background-color: #555;
+}

@@ -4,15 +4,8 @@ body{
 
 .thumbnail img {
     width: 100%;
+}
 
-}
-.thumbnail {
-    padding: 0;
-
-}
-.thumbnail .caption-full {
-    padding: 9px;
-}
 .delete-form {
     display: inline;
 }
@@ -23,7 +16,6 @@ body{
 .preview{
 	padding:2.5ex;
 }
-
 .navbar-default {
 	background-color: #555;
 	color: #fff !important;

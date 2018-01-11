@@ -4,6 +4,9 @@
         <h3><%= user.username%></h3>
         <div class="thumbnail" id="prof-img-container">
             <img src="<%= user.avatar %>" alt="user profile image" id='avatar'>
+            <h3>Profile</h3>
+            <h5>Username: <%= user.username%></h5>
+            <!-- <h5>Email: <a href="mailto:<%= user.email %>"><%=user.email%></a></h5> -->
             <form action="/user/profilePicUpload/<%= user.id%>?_method=PUT" method="post" enctype="multipart/form-data" target='picupload'>
                 <div class="form-group">
                     <label for="image">Image</label>
@@ -13,9 +16,9 @@
                     <input type="submit" value="Upload Now" style='visibility:hidden' id='image-profile-upload' />
                 </div>
             </form>
-            <h3>Profile</h3>
+            <!-- <h3>Profile</h3>
             <h5>Username: <%= user.username%></h5>
-            <h5>Email: <a href="mailto:<%= user.email %>"><%=user.email%></a></h5>
+            <h5>Email: <a href="mailto:<%= user.email %>"><%=user.email%></a></h5> -->
         </div>
     </div>
     <div class="col-md-8" id="profile-col2">

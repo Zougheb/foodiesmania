@@ -46,7 +46,7 @@ ul li {
 }
 .cuisine-info-cover a {
 	color: #5cb85c;
-	font-family: 
+	font-family:
 }
 li a {
 	font-size: 25px;
@@ -75,4 +75,20 @@ li a {
 }
 #profile-col2 li {
 	font-family: "Cambria",Helvetica,Arial,sans-serif;
+}
+
+.h1, .h2, .h3, h1, h2, h3 {
+    margin-top: 15px;
+    margin-bottom: 10px;
+}
+
+#image-profile-upload{
+	width: 91px;
+	height: 21px;
+	font-size: 12px;
+	margin-bottom: 10px;
+}
+
+#avatar{
+	border-radius: 40%;
 }

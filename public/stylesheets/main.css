@@ -1,33 +1,45 @@
+
+body{
+	font-family: "Cambria",Helvetica,Arial,sans-serif;
+}
+
 .thumbnail img {
     width: 100%;
-
 }
-
 .thumbnail {
     padding: 0;
-    
 }
-
 .thumbnail .caption-full {
     padding: 9px;
 }
-
 .delete-form {
     display: inline;
-
-
 }
 .like {
 	padding-top: 3ex;
 	padding-left: 3ex;
 }
-
 .preview{
 	padding:2.5ex;
 
 }
-
-
+.navbar-default {
+	background-color: #555;
+	color: #fff !important;
+}
+.navbar-brand {
+	color: #5cb85c !important;
+	font-size: 30px;
+	font-family: 'Berkshire Swash', cursive;
+	text-shadow: 1px 1px #000;
+}
+.navbar-default .navbar-nav>li>a {
+	color: #ddd;
+	font-size: 16px;
+}
+#home-li {
+	background-color: #555 !important;
+}
 
 /* Google Maps */
 #map {
@@ -39,4 +51,18 @@
  box-shadow:none;
  -webkit-box-shadow:none;
  border-color:#cccccc;
+}
+
+
+.navbar-default .navbar-collapse, .navbar-default .navbar-form {
+    border-color: #555;
+}
+
+.navbar-default .navbar-nav>li>a{
+    color: #ddd;
+}
+
+.navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:focus, .navbar-default .navbar-nav>.active>a:hover {
+    color:#ddd;
+    background-color: #555;
 }

@@ -25,8 +25,8 @@
 
   cloudinary.config({
     cloud_name: 'dv6gbxbw2',
-    api_key: process.env.CLOUDINARY_API_KEY,
-    api_secret: process.env.CLOUDINARY_API_SECRET,
+    api_key: process.env.CLOUDINARY_API_KEY || '7941918861639842' ,
+    api_secret: process.env.CLOUDINARY_API_SECRET || 'NlHjRdHtzmsuvdidSF-ZLY-OqSQ',
   });
 
   // INDEX ROUTE -- SHOW ALL CUISINES

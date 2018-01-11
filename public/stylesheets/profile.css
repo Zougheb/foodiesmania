@@ -1,0 +1,94 @@
+.container {
+	width: 100%;
+	max-width: 980px;
+	margin: 0 auto;
+}
+#prof-img-container {
+	border-radius: 20px 0;
+	width: 240px;
+	height: 390px;
+	padding: 20px;
+	background-color: #f7f8f9;
+}
+.img-responsive {
+	width: 100%;
+	max-width: 610px;
+	padding-bottom: 10px;
+	margin-top: 10px;
+    /*box-shadow: 4px 4px 3px rgba(0, 0, 0, 0.3);*/
+}
+ul li {
+	list-style-type: none;
+	margin-left: 0;
+	padding-left: 0;
+}
+.cuisine-list {
+	margin:0;
+	padding:0;
+}
+.cuisine-list li {
+	margin-bottom: 30px;
+}
+
+.cuisine-info-container {
+	position: relative;
+}
+.cuisine-info-cover {
+	width: 100%;
+	height: 100px;
+	position: absolute;
+	bottom: 10px;
+	left: 0;
+	background-color: rgba(0,0,0,.7);
+	color: #fff;
+	padding-left: 20px;
+	padding-right: 20px;
+}
+.cuisine-info-cover a {
+	color: #5cb85c;
+	font-family:
+}
+li a {
+	font-size: 25px;
+}
+.profile-footer {
+	background-color: #333;
+	color: #fff;
+	text-align: center;
+	padding-top: 20px;
+	padding-bottom: 20px;
+}
+.footer-brand {
+	color: #5cb85c !important;
+    font-size: 18px;
+    font-family: 'Berkshire Swash', cursive;
+    text-shadow: 1px 1px #000;
+}
+#profile-col1 h3 {
+	font-family: "Cambria",Helvetica,Arial,sans-serif;
+}
+#profile-col1 h5 {
+	font-family: "Cambria",Helvetica,Arial,sans-serif;
+}
+#profile-col2 h3 {
+	font-family: "Cambria",Helvetica,Arial,sans-serif;
+}
+#profile-col2 li {
+	font-family: "Cambria",Helvetica,Arial,sans-serif;
+}
+
+.h1, .h2, .h3, h1, h2, h3 {
+    margin-top: 15px;
+    margin-bottom: 10px;
+}
+
+#image-profile-upload{
+	width: 91px;
+	height: 21px;
+	font-size: 12px;
+	margin-bottom: 10px;
+}
+
+#avatar{
+	border-radius: 40%;
+}

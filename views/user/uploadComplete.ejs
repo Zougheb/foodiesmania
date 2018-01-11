@@ -1,0 +1,11 @@
+
+<div>Upload successfull</div>
+<script>
+function updateProfileImage(){
+	var urlParams = new URLSearchParams(window.location.search.slice(1));
+	if(urlParams.get("avatar")){
+		parent.document.getElementById('avatar').src = urlParams.get('avatar');
+	}
+}
+updateProfileImage();
+</script>

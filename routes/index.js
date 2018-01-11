@@ -55,25 +55,11 @@
   // LOGOUT ROUTES AND LOGIC
   router.get("/logout", function(req, res){
       req.logout();
-      req.flash("success", "Logged you out");
+      req.flash("success", "Logged out");
       res.redirect("/cuisines");
   });
 
-  // USER PROFILE
-  router.get("/user/:id", function(req, res){
-     User.findById(req.params.id, function(err, foundUser){
-         if(err) {
-             req.flash("error","Something wenbt wrong!");
-             res.redirect("/");
-         }
-         Cuisine.find().where("author.id").equals(foundUser._id).exec(function(err, cuisines){
-              if(err) {
-                req.flash("error","Something wenbt wrong!");
-                res.redirect("/");
-            }
-            res.render("user/show", {user: foundUser, cuisines: cuisines});
-         });
-     });
-  });
+// USER PROFILE
+ 
 
   module.exports = router;

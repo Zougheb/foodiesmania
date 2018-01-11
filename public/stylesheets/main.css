@@ -20,7 +20,8 @@ body{
 	padding-left: 3ex;
 }
 .preview{
-	border: 1px solid #eee;
+	padding:2.5ex;
+
 }
 .navbar-default {
 	background-color: #555;

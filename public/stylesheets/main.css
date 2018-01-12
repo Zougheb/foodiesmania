@@ -3,8 +3,13 @@ body{
 	font-family: "Cambria",Helvetica,Arial,sans-serif;
 }
 
-.thumbnail img {
+.image-container img {
     width: 100%;
+    margin: 10px;
+    /*margin-bottom: 0;*/
+    padding-bottom: 0;
+    border: 1px solid #ddd;
+    border-radius: 4px;
 }
 .thumbnail {
     padding: 0;
@@ -76,3 +81,7 @@ a.glyphicon-heart-empty{
 	color: #5cb85c;
 	text-shadow: 1px 1px #000;
 }
+/*.show-thumbnail {
+	margin-top: 0;
+}
+*/

@@ -100,11 +100,15 @@ a.glyphicon-heart-empty{
     font-size: 30px;
 }
 
-#login_button{
-    width: 37%;
+#login_button, #signup{
+    width: 47%;
     text-align: center;
     height: 40px;
     background:#555;
     color:#5cb85c !important;
     margin-left: 90px;
+}
+
+input.form-control{
+    border: none;
 }

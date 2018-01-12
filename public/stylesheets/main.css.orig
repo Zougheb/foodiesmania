@@ -87,6 +87,7 @@ a.glyphicon-heart-empty{
 }
 */
 
+<<<<<<< HEAD
 .login_container{
     box-shadow: 2px 2px 2px 2px #888888;
     border-radius: 25px;
@@ -113,3 +114,5 @@ a.glyphicon-heart-empty{
 input.form-control{
     border: none;
 }
+=======
+>>>>>>> 8dfa7c9f2022ea83712fd274626be49f22d3d306

@@ -7,6 +7,9 @@
             <h3>Profile</h3>
             <h5>Username: <%= user.username%></h5>
             <!-- <h5>Email: <a href="mailto:<%= user.email %>"><%=user.email%></a></h5> -->
+
+            <% if(currentUser && cuisines.length > 0 && cuisines[0].author && cuisines[0].author.id.equals(currentUser._id) || currentUser && currentUser.isAdmin){ %>
+
             <form action="/user/profilePicUpload/<%= user.id%>?_method=PUT" method="post" enctype="multipart/form-data" target='picupload'>
                 <div class="form-group">
                     <label for="image">Image</label>
@@ -16,6 +19,9 @@
                     <input type="submit" value="Upload Now" style='visibility:hidden' id='image-profile-upload' />
                 </div>
             </form>
+
+            <% }%>
+
             <!-- <h3>Profile</h3>
             <h5>Username: <%= user.username%></h5>
             <h5>Email: <a href="mailto:<%= user.email %>"><%=user.email%></a></h5> -->

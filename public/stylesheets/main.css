@@ -3,8 +3,13 @@ body{
 	font-family: "Cambria",Helvetica,Arial,sans-serif;
 }
 
-.thumbnail img {
+.image-container img {
     width: 100%;
+    margin: 10px;
+    /*margin-bottom: 0;*/
+    padding-bottom: 0;
+    border: 1px solid #ddd;
+    border-radius: 4px;
 }
 .thumbnail {
     padding: 0;
@@ -66,12 +71,19 @@ body{
     background-color: #555;
 }
 
-
 a:hover{
-	text-decoration: none;
-	color:#333;
+    text-decoration: none;
+    color:#333;
 }
-
 a.glyphicon-heart-empty{
-	color: #333;
+    color: #333;
 }
+#cuisine-name {
+	color: #5cb85c;
+	text-shadow: 1px 1px #000;
+}
+/*.show-thumbnail {
+	margin-top: 0;
+}
+*/
+

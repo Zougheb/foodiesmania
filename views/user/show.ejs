@@ -35,7 +35,7 @@
                     <img class="img-responsive" src="<%= cuisine.image %>">
                     <div class="cuisine-info-cover">
                         <a href="/cuisines/<%= cuisine.id %>"><%= cuisine.name %></a><br>
-                        Posted on: <%= moment(cuisines.createdAt) %><br>
+                        Posted on: <%= moment(cuisines.createdAt).format('LLLL') %><br>
                         Location: <%= cuisine.location %><br>
                         Cost: $<%= cuisine.cost %><br>
                     </div>
@@ -48,5 +48,5 @@
 <iframe id='picupload' style='width:0px;height:0px' name='picupload' ></iframe>
 <% include  ../partials/footer%>
 <footer class="profile-footer">
-    <div>Copyright &copy; 2018 | <span class="footer-brand">Foodies<span></div>
+    <div>Copyright &copy; 2018 | <span class="footer-brand">Foodsnap<span></div>
 </footer>

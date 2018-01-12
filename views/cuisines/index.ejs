@@ -1,45 +1,45 @@
 <% include  ../partials/header.ejs %>
 <div class="container">
-    <% cuisines.forEach(function(cuisines){%>
-    <div class="row">
-        <div class="col-md-8">
-            <div class="thumbnail">
-                <img class="img-responsive" src="<%= cuisines.image %>">
-                <div class="like">
-                    <span class="btn btn-default like-button"><a class="glyphicon glyphicon-heart-empty"></a></span>
-                    <a href="/cuisines/<%= cuisines._id %>" class="btn btn-default"><span class="glyphicon glyphicon-info-sign"></span></a>
-                </div>
+   <div class="row">
+   <% cuisines.forEach(function(cuisines){%>
+       <div class="col-md-8">
+           <div class="image-container">                
+               <img class="img-responsive" src="<%= cuisines.image %>">
+           </div>
+       </div>
 
-            </div>
-        </div>
-        <div class="col-md-4">
-            <div class="preview">By
-                <a href="/user/<%= cuisines.author.id %>"><%= cuisines.author.username %></a>
-                <div class="caption-full">
-                    <h4 class="pull-right">$<%= cuisines.cost %></h4>
-                    <h4><a href="/cuisines/<%= cuisines._id %>"><%=cuisines.name%></a></h4>
-                    <p><%= cuisines.description %></p>
-                    <p><em><a href="/user/<%= cuisines.author.id %>"><%= cuisines.author.username %></a>, <%= moment(cuisines.createdAt).fromNow() %></em></p>
-                    <% if(currentUser && cuisines.author.id.equals(currentUser._id) || currentUser && currentUser.isAdmin){ %>
-                    <a href="/cuisines/<%= cuisines._id %>/edit" class="btn btn-default">
-                        <span class="glyphicon glyphicon-edit"></span>Edit</a>
-                        <form class="delete-form" action="/cuisines/<%= cuisines._id %>?_method=DELETE" method="POST">
-                              <button class="btn btn-default"><span class="glyphicon glyphicon-trash"></span>Delete</button>
-                        </form>
-                      <% }%>
-                </div>
-            </div>
-        </div>
-        <% }); %>
-    </div>
+       <div class="col-md-4">
+           <div class="preview">
+               <div class="caption-full">
+                   <h4><a id="cuisine-name" href="/cuisines/<%= cuisines._id %>"><%=cuisines.name%></a></h4>
+                   <p><%= cuisines.description %></p>
+                   <p>Cost: $<%=cuisines.cost%></p>
+                   <p><em><a href="/user/<%= cuisines.author.id %>">@<%= cuisines.author.username %></a>, <%= moment(cuisines.createdAt).fromNow() %></em></p>
+                   <span class="btn btn-default like-button"><a class="glyphicon glyphicon-heart-empty"></a></span>
+                   <a href="/cuisines/<%= cuisines._id %>" class="btn btn-default"><span class="glyphicon glyphicon-info-sign"></span></a><br><br>
+                   <% if(currentUser && cuisines.author.id.equals(currentUser._id) || currentUser && currentUser.isAdmin){ %>
+                   <a href="/cuisines/<%= cuisines._id %>/edit" class="btn btn-default">
+                       <span class="glyphicon glyphicon-edit"></span>Edit</a>
+                       <form class="delete-form" action="/cuisines/<%= cuisines._id %>?_method=DELETE" method="POST">
+                             <button class="btn btn-default"><span class="glyphicon glyphicon-trash"></span>Delete</button>
+                       </form>
+                     <% }%>
+               </div>
+           </div>
+       </div>
+       <% }); %>
+   </div>
 </div>
+<footer class="profile-footer">
+   <div>Copyright &copy; 2018 | <span class="footer-brand">Foodsnap<span></div>
+</footer>
 <script>
-  $(function($) {
-  $(document).on('click', '.like-button', function(event) {
-    var $target = $(event.target);
-    console.log($target);
-    $target.toggleClass('glyphicon-heart-empty glyphicon-heart');
-  });
+ $(function($) {
+ $(document).on('click', '.like-button', function(event) {
+   var $target = $(event.target);
+   console.log($target);
+   $target.toggleClass('glyphicon-heart-empty glyphicon-heart');
+ });
 });
 </script>
-  <% include ../partials/footer.ejs %>
+ <% include ../partials/footer.ejs %>

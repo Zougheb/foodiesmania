@@ -1,89 +1,155 @@
-
 body{
-	font-family: "Cambria",Helvetica,Arial,sans-serif;
+    font-family: "Cambria",Helvetica,Arial,sans-serif;
 }
 
 .image-container img {
-    width: 100%;
-    margin: 10px;
-    /*margin-bottom: 0;*/
-    padding-bottom: 0;
-    border: 1px solid #ddd;
-    border-radius: 4px;
+   width: 100%;
+   margin: 10px;
+   /*margin-bottom: 0;*/
+   padding-bottom: 0;
+   border: 1px solid #ddd;
+   border-radius: 4px;
 }
 .thumbnail {
-    padding: 0;
+   padding: 0;
 }
 .thumbnail .caption-full {
-    padding: 9px;
+   padding: 9px;
 }
 .delete-form {
-    display: inline;
+   display: inline;
 }
 .like {
-	padding-top: 3ex;
-	padding-left: 3ex;
+    padding-top: 3ex;
+    padding-left: 3ex;
 }
 .preview{
-	padding:2.5ex;
+    padding:2.5ex;
 
 }
 .navbar-default {
-	background-color: #555;
-	color: #fff !important;
+    background-color: #555;
+    color: #fff !important;
 }
 .navbar-brand {
-	color: #5cb85c !important;
-	font-size: 30px;
-	font-family: 'Berkshire Swash', cursive;
-	text-shadow: 1px 1px #000;
+    color: #5cb85c !important;
+    font-size: 30px;
+    font-family: 'Berkshire Swash', cursive;
+    text-shadow: 1px 1px #000;
 }
 .navbar-default .navbar-nav>li>a {
-	color: #ddd;
-	font-size: 16px;
+    color: #ddd;
+    font-size: 16px;
 }
 #home-li {
-	background-color: #555 !important;
+    background-color: #555 !important;
 }
 
 /* Google Maps */
 #map {
-    height: 400px;
-    width: 100%;
+   height: 400px;
+   width: 100%;
 }
 
 .form-control:focus {
- box-shadow:none;
- -webkit-box-shadow:none;
- border-color:#cccccc;
+box-shadow:none;
+-webkit-box-shadow:none;
+border-color:#cccccc ;
 }
 
 /* .navbar-default .navbar-collapse, .navbar-default .navbar-form {
-    border-color: #555;
+   border-color: #555;
 } */
 
 .navbar-default .navbar-nav>li>a{
-    color: #ddd;
+   color: #ddd;
 }
 
 .navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:focus, .navbar-default .navbar-nav>.active>a:hover {
-    color:#ddd;
-    background-color: #555;
+   color:#ddd;
+   background-color: #555;
 }
 
 a:hover{
-    text-decoration: none;
-    color:#333;
+   text-decoration: none;
+   color:#333;
 }
 a.glyphicon-heart-empty{
-    color: #333;
+   color: #333;
 }
 #cuisine-name {
-	color: #5cb85c;
-	text-shadow: 1px 1px #000;
+    color: #5cb85c ;
+    text-shadow: 1px 1px #000;
 }
 /*.show-thumbnail {
-	margin-top: 0;
+    margin-top: 0;
 }
 */
 
+.login_container{
+/* <<<<<<< HEAD
+   /* box-shadow: 2px 2px 2px 2px #888888 ; */
+   width: 40%;
+   margin-left: 30%;
+   margin-top: 10%;
+   padding: 10px;
+   /* border: 1px solid #333; */
+   border: dotted solid double dashed;
+}
+
+.login_container h1{
+   color:#333 !important;
+   font-size: 30px;
+}
+
+#login_button, #signup{
+   width: 37%;
+   text-align: center;
+   height: 40px;
+   background-color:#5cb85c !important;
+   margin-left: 90px;
+   color: #333;
+   border: 1px solid #5cb85c !important;
+}
+
+.form-control {
+   background-color: #fff;
+}
+.go_back {
+   margin-left: 40%;
+}
+.form-control {
+   font-size: 15px;
+}
+/* ======= */
+   /* box-shadow: 2px 2px 2px 2px #888888 ;
+   border-radius: 25px;
+   width: 50%;
+   margin-left: 300px;
+   margin-top: 100px;
+   padding: 20px;
+}
+
+.login_container h1{
+   color:#5cb85c !important;
+   font-size: 30px;
+}
+
+#login_button, #signup{
+   width: 47%;
+   text-align: center;
+   height: 40px;
+   background:#555;
+   color:#5cb85c !important;
+   margin-left: 90px;
+}
+
+input.form-control{
+   border: none;
+}
+>>>>>>> b1a6dc0432e0024fe5bc5d865fc31314f53868ec */
+
+
+input.form-control{
+   background-color: #f5f599;
+}

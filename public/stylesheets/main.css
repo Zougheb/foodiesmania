@@ -93,7 +93,8 @@ a.glyphicon-heart-empty{
    margin-left: 30%;
    margin-top: 10%;
    padding: 10px;
-   border: 1px solid #333;
+   /* border: 1px solid #333; */
+   border: dotted solid double dashed;
 }
 
 .login_container h1{
@@ -101,7 +102,7 @@ a.glyphicon-heart-empty{
    font-size: 30px;
 }
 
-#login_button{
+#login_button, #signup{
    width: 37%;
    text-align: center;
    height: 40px;
@@ -145,3 +146,8 @@ input.form-control{
    border: none;
 }
 >>>>>>> b1a6dc0432e0024fe5bc5d865fc31314f53868ec */
+
+
+input.form-control{
+   background-color: #f5f599;
+}

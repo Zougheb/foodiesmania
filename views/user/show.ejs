@@ -29,7 +29,7 @@
                     <img class="img-responsive" src="<%= cuisine.image %>">
                     <div class="cuisine-info-cover">
                         <a href="/cuisines/<%= cuisine.id %>"><%= cuisine.name %></a><br>
-                        Posted on: <%= moment(cuisines.createdAt) %><br>
+                        Posted on: <%= moment(cuisines.createdAt).format('LLLL') %><br>
                         Location: <%= cuisine.location %><br>
                         Cost: $<%= cuisine.cost %><br>
                     </div>

@@ -109,7 +109,9 @@ a.glyphicon-heart-empty{
    background-color:#5cb85c !important;
    margin-left: 90px;
    color: #333;
+   border: 1px solid #5cb85c !important;
 }
+
 .form-control {
    background-color: #fff;
 }

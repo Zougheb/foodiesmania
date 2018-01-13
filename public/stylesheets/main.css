@@ -112,14 +112,17 @@ a.glyphicon-heart-empty{
 
 .form-control {
    background-color: #fff;
+   font-size: 15px;
+
 }
 .go_back {
    margin-left: 40%;
 }
-.form-control {
-   font-size: 15px;
-}
 
 input.form-control{
    background-color: #f5f599;
+}
+.add_new_container {
+  width: 40%;
+  margin-top: 50px;
 }

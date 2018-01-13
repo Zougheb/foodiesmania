@@ -15,7 +15,7 @@
                    <p><%= cuisines.description %></p>
                    <p>Cost: $<%=cuisines.cost%></p>
                    <p><em><a href="/user/<%= cuisines.author.id %>">@<%= cuisines.author.username %></a>, <%= moment(cuisines.createdAt).fromNow() %></em></p>
-                   <span class="btn btn-default like-button"><a class="glyphicon glyphicon-heart-empty"></a></span>
+                   <span class="btn btn-default"><a class="glyphicon glyphicon-heart-empty like-button"></a></span>
                    <a href="/cuisines/<%= cuisines._id %>" class="btn btn-default"><span class="glyphicon glyphicon-info-sign"></span></a><br><br>
                    <% if(currentUser && cuisines.author.id.equals(currentUser._id) || currentUser && currentUser.isAdmin){ %>
                    <a href="/cuisines/<%= cuisines._id %>/edit" class="btn btn-default">
@@ -35,7 +35,7 @@
 </footer>
 <script>
  $(function($) {
- $(document).on('click', '.glyphicon-heart-empty', function(event) {
+ $(document).on('click', '.like-button', function(event) {
    var $target = $(event.target);
    console.log($target);
    $target.toggleClass('glyphicon-heart-empty glyphicon-heart');

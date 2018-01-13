@@ -41,12 +41,14 @@ body{
 .navbar-default .navbar-nav>li>a{
    color: #ddd;
    text-transform: uppercase;
+   font-size: 15px;
 }
 .navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:focus, .navbar-default .navbar-nav>.active>a:hover {
    color:#ddd;
    background-color: #555;
    text-transform: uppercase;
 }
+
 #home-li {
     background-color: #555 !important;
 }

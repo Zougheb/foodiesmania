@@ -1,12 +1,13 @@
   <% include ../partials/header.ejs %>
   <div class="container">
       <div class="row">
-          <h1> Add a New Cuisine</h1>
-          <div style="width: 30%; margin:25px auto;">
+          <div class="thumbnail login_container add_new_container">
+          <h1 style="text-align: center;"> Add a Snap!</h1>
+          <div style="width: 80%; margin: 19px auto;">
               <form action="/cuisines" method="post" enctype="multipart/form-data">
                   <div class="form-group">
                        <label for="name">Name</label>
-                       <input class="form-control" type="text" name="name" id="name" placeholder="Spanish Paella">
+                       <input class="form-control add-new-input" type="text" name="name" id="name" placeholder="Spanish Paella">
                   </div>
                   <div class="form-group">
                      <label for="image">Image</label>
@@ -14,21 +15,24 @@
                   </div>
                   <div class="form-group">
                      <label for="cost">Cost</label>
-                     <input class="form-control" type="number" name="cost" id="cost" placeholder="9.99" step="0.01" min="0" required>
+                     <input class="form-control add-new-input" type="number" name="cost" id="cost" placeholder="9.99" step="0.01" min="0" required>
                   </div>
                   <div class="form-group">
                     <label for="location">Location</label>
-                    <input class="form-control" type="text" name="location" id="location" placeholder="San Francisco, CA">
+                    <input class="form-control add-new-input" type="text" name="location" id="location" placeholder="San Francisco, CA">
                   </div>
                   <div class="form-group">
                      <label for="description">Description</label>
-                     <input class="form-control" type="text" name="description" id="description" placeholder="Valencian Rice Dish">
+                     <input class="form-control add-new-input" type="text" name="description" id="description" placeholder="Valencian Rice Dish">
                   </div>
                    <div class="form-group">
-                     <button class="btn btn-lg btn-primary btn-block">Submit!</button>
+                 <button class="btn btn-lg btn-primary btn-block" id="login_button">Submit!</button>
+
                    </div>
               </form>
-               <a href="/cuisines"> Go Back</a>
+            </div>
+               <a class="go_back" href="/cuisines">Go Back</a>
+
           </div>
       </div>
   </div>

@@ -1,5 +1,6 @@
 body{
-    font-family: "Cambria",Helvetica,Arial,sans-serif;
+   font-family: "Cambria",Helvetica,Arial,sans-serif;
+   padding-top: 70px;
 }
 
 .image-container img {
@@ -37,9 +38,14 @@ body{
     font-family: 'Berkshire Swash', cursive;
     text-shadow: 1px 1px #000;
 }
-.navbar-default .navbar-nav>li>a {
-    color: #ddd;
-    font-size: 16px;
+.navbar-default .navbar-nav>li>a{
+   color: #ddd;
+   text-transform: uppercase;
+}
+.navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:focus, .navbar-default .navbar-nav>.active>a:hover {
+   color:#ddd;
+   background-color: #555;
+   text-transform: uppercase;
 }
 #home-li {
     background-color: #555 !important;
@@ -65,10 +71,10 @@ border-color:#cccccc ;
    color: #ddd;
 }
 
-.navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:focus, .navbar-default .navbar-nav>.active>a:hover {
+/* .navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:focus, .navbar-default .navbar-nav>.active>a:hover {
    color:#ddd;
    background-color: #555;
-}
+} */
 
 a:hover{
    text-decoration: none;
@@ -100,7 +106,7 @@ a.glyphicon-heart-empty{
    font-size: 30px;
 }
 
-#login_button, #signup{
+/* #login_button, #signup{
    width: 37%;
    text-align: center;
    height: 40px;
@@ -108,7 +114,7 @@ a.glyphicon-heart-empty{
    margin-left: 90px;
    color: #333;
    border: 1px solid #5cb85c !important;
-}
+} */
 
 .form-control {
    background-color: #fff;

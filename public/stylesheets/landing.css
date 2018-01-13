@@ -40,15 +40,15 @@ body {
 }
 
 .slideshow li:nth-child(1) { 
-  background-image: url(https://images.pexels.com/photos/8717/food-pot-kitchen-cooking.jpg?h=350&auto=compress&cs=tinysrgb) 
+  background-image: url(https://farm5.staticflickr.com/4716/24797039407_b625de5ea9.jpg) 
 }
 .slideshow li:nth-child(2) { 
   background-image: url(https://images.pexels.com/photos/236781/pexels-photo-236781.jpeg?h=350&dpr=2&auto=compress&cs=tinysrgb);
-  animation-delay: 5s; 
+  animation-delay: 10s; 
 }
 .slideshow li:nth-child(3) { 
   background-image: url(https://images.pexels.com/photos/539451/pexels-photo-539451.jpeg?h=350&auto=compress&cs=tinysrgb);
-  animation-delay: 10s; 
+  animation-delay: 15s; 
 }
 .slideshow li:nth-child(4) { 
   background-image: url(https://images.pexels.com/photos/262918/pexels-photo-262918.jpeg?h=350&dpr=2&auto=compress&cs=tinysrgb);
@@ -56,7 +56,7 @@ body {
 }
 .slideshow li:nth-child(5) { 
   background-image: url(https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg?h=350&dpr=2&auto=compress&cs=tinysrgb);
-  animation-delay: 30s; 
+  animation-delay: 25s; 
 }
 
 @keyframes imageAnimation { 

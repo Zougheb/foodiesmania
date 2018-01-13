@@ -28,14 +28,14 @@
     </div>
     <div class="col-md-8" id="profile-col2">
         <h3 id='profile-header' class="w3-circle"><%= user.username %>'s shared photos:</h3>
-        <ul class='cuisine-list'><%  cuisines.forEach(function(cuisine) { %>
+        <ul class='cuisine-list'><%  cuisines.reverse().forEach(function(cuisine) { %>
             <li>
                 <div class="cuisine-info-container">
                     <img class="img-responsive" src="<%= cuisine.image %>">
                     <div class="cuisine-info-cover">
                         <a href="/cuisines/<%= cuisine.id %>"><%= cuisine.name %></a><br>
-                        Posted on: <%= moment(cuisines.createdAt).format('LLLL') %><br>
-                        Location: <%= cuisine.location %><br>
+<!--                         Posted on: <%= moment(cuisines.createdAt).fromNow()  %><br>
+ -->                        Location: <%= cuisine.location %><br>
                         Cost: $<%= cuisine.cost %><br>
                     </div>
                 </div>

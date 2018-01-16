@@ -1,6 +1,6 @@
 # foodsnap
 
-A soicial food network for food lovers to share and treasure thier memorable family and friends  moments around food.
+A social food network for food lovers to share and treasure their memorable family and friends  moments around food.
 
 How to add a snap?
 

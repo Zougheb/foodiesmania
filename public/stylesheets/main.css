@@ -6,7 +6,6 @@ body{
 .image-container img {
    width: 100%;
    margin: 10px;
-   /*margin-bottom: 0;*/
    padding-bottom: 0;
    border: 1px solid #ddd;
    border-radius: 4px;
@@ -65,18 +64,9 @@ box-shadow:none;
 border-color:#cccccc ;
 }
 
-/* .navbar-default .navbar-collapse, .navbar-default .navbar-form {
-   border-color: #555;
-} */
-
 .navbar-default .navbar-nav>li>a{
    color: #ddd;
 }
-
-/* .navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:focus, .navbar-default .navbar-nav>.active>a:hover {
-   color:#ddd;
-   background-color: #555;
-} */
 
 a:hover{
    text-decoration: none;
@@ -89,17 +79,12 @@ a.glyphicon-heart-empty{
     color: #5cb85c ;
     text-shadow: 1px 1px #000;
 }
-/*.show-thumbnail {
-    margin-top: 0;
-}
-*/
 
 .login_container{
    width: 40%;
    margin-left: 30%;
    margin-top: 10%;
    padding: 10px;
-   /* border: 1px solid #333; */
    border: dotted solid double dashed;
 }
 
@@ -107,16 +92,6 @@ a.glyphicon-heart-empty{
    color:#333 !important;
    font-size: 30px;
 }
-
-/* #login_button, #signup{
-   width: 37%;
-   text-align: center;
-   height: 40px;
-   background-color:#5cb85c !important;
-   margin-left: 90px;
-   color: #333;
-   border: 1px solid #5cb85c !important;
-} */
 
 .form-control {
    background-color: #fff;

@@ -1,8 +1,6 @@
 # foodsnap
 
-A social food network for food lovers to share and treasure their memorable family and friends  moments around food.
-
-How to add a snap?
+A social food network for foodies to share their snaps with their friends with some information such as: where these snaps has been taken, review on this cuisine and how much you got it, in addition to posting comments on your friends snaps. 
 
 In the navbar, there is a [link](screenshots/add.png?raw=true) to a form to add your snap 
 

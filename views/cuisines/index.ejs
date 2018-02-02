@@ -1,38 +1,45 @@
 <% include  ../partials/header.ejs %>
-<div class="container">
+
+<div class="container" style=" padding: 80px 0;">
+
    <div class="row">
+
    <% cuisines.forEach(function(cuisines){%>
-       <div class="col-md-8">
-           <div class="image-container">                
-               <img class="img-responsive" src="<%= cuisines.image %>">
+
+       <div class="md-8">
+           <figure class="figure" >                
+               <img class="img-thumbnail"  alt="Responsive image" src="<%= cuisines.image %>">
+           </figure>
+       </div>
+
+       <div class="col-md-4" >
+           <div class="preview" >
+               <figcaption class="figure-caption text-justify"  >
+                  <h4>
+                    <a id="cuisine-name" href="/cuisines/<%= cuisines._id %>"><%=cuisines.name%></a>
+                  </h4>
+
+                   <p><%= cuisines.description %></p>
+
+                   <p><strong>Cost</strong>: $<%=cuisines.cost%></p>
+                   <p><%=cuisines.location%></p>
+
+                   <p><em><a href="/user/<%= cuisines.author.id %>">@<strong><%= cuisines.author.username %></strong></a>, <%= moment(cuisines.createdAt).fromNow() %></em>
+                   </p>
+                    <a href="/cuisines/<%= cuisines._id %>" class="btn btn-info data-toggle="modal" data-target="#exampleModalLong"">Info</a>
+
+                    <br><br>
+
+                     
+               </figcaption>
            </div>
        </div>
 
-       <div class="col-md-4">
-           <div class="preview">
-               <div class="caption-full">
-                   <h4><a id="cuisine-name" href="/cuisines/<%= cuisines._id %>"><%=cuisines.name%></a></h4>
-                   <p><%= cuisines.description %></p>
-                   <p>Cost: $<%=cuisines.cost%></p>
-                   <p><em><a href="/user/<%= cuisines.author.id %>">@<%= cuisines.author.username %></a>, <%= moment(cuisines.createdAt).fromNow() %></em></p>
-                   <span class="btn btn-default"><a class="glyphicon glyphicon-heart-empty like-button"></a></span>
-                   <a href="/cuisines/<%= cuisines._id %>" class="btn btn-default"><span class="glyphicon glyphicon-info-sign"></span></a><br><br>
-                   <% if(currentUser && cuisines.author.id.equals(currentUser._id) || currentUser && currentUser.isAdmin){ %>
-                   <a href="/cuisines/<%= cuisines._id %>/edit" class="btn btn-default">
-                       <span class="glyphicon glyphicon-edit"></span>Edit</a>
-                       <form class="delete-form" action="/cuisines/<%= cuisines._id %>?_method=DELETE" method="POST">
-                             <button class="btn btn-default"><span class="glyphicon glyphicon-trash"></span>Delete</button>
-                       </form>
-                     <% }%>
-               </div>
-           </div>
-       </div>
        <% }); %>
+   
    </div>
 </div>
-<footer class="profile-footer">
-   <div>Copyright &copy; 2018 | <span class="footer-brand">Foodsnap<span></div>
-</footer>
+
 <script>
  $(function($) {
  $(document).on('click', '.like-button', function(event) {

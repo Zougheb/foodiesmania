@@ -1,36 +1,67 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>Foodsnap</title>
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-        <link rel="stylesheet" href="/stylesheets/landing.css">
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js" type="text/javascript" async></script>
-    </head>
-    <body>
+
     
-    <div class="container">
-        <% if(error && error.length > 0){ %>
-            <div class="alert alert-danger" role="alert">
-                <%= error %>
+
+    <h1 style="text-align: center">Sign Up</h1>
+    <div>
+        <form action="/register" method="post">
+            <div class="form-group">
+                <input class="form-control" type="text" name="username" placeholder="username">
             </div>
-        <% } %>
-        <% if(success && success.length > 0){ %>
-            <div class="alert alert-success" role="alert">
-                <%= success %>
+            <div class="form-group">
+                <input class="form-control" type="password" name="password" placeholder="password">
             </div>
-        <% } %>
-    </div>
-    <div id="landing-header">
-        <h1>WELCOME TO FOODSNAP!</h1>
-        <a href="/cuisines" class="btn btn-lg btn-success">Share the love!</a>
+            <div class="form-group">
+                <input class="form-control" type="text" name="confirm_password" placeholder="confirm Password">
+            </div>
+             <div class="form-group">
+                <input class="form-control" type="text" name="firstName" placeholder="full name">
+            </div>
+            <div class="form-group">
+                <input class="form-control" type="email" name="email" placeholder="email">
+            </div>
+            <div class="form-group">
+                <button class="btn btn-lg btn-primary btn-block" id="signup">Sign Up!</button>
+            </div>
+            <div>
+              <a class="go_back" href="/cuisines">Go Back</a>
+            </div>
+        </form>
     </div>
     
-    <ul class="slideshow">
-      <li></li>
-      <li></li>
-      <li></li>
-      <li></li>
-      <li></li>
-    </ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 <% include partials/footer %>

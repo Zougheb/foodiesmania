@@ -1,46 +1,60 @@
-<!DOCTYPE html>
-<html>
-    <head>
-    <!-- Make site responsive on mobile/tablet -->
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Foodsnap</title>
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-        <link rel="stylesheet" href="/stylesheets/main.css">
-        <link rel="stylesheet" href="/stylesheets/profile.css">
-        <link href="https://fonts.googleapis.com/css?family=Berkshire+Swash|Pacifico" rel="stylesheet">
-    </head>
-    <body>
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <!-- Optional JavaScript -->
+    <!-- jQuery first,then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     
-        <nav class="navbar navbar-default navbar-fixed-top">
-            <div class="container">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-                      <span class="sr-only">Toggle navigation</span>
-                      <span class="icon-bar"></span>
-                      <span class="icon-bar"></span>
-                      <span class="icon-bar"></span>
-                    </button>
-                    
-                </div>
-                <div id="navbar " class="collapse navbar-collapse">
-                    <a class="navbar-brand" href="/">Foodsnap</a>
-                    <ul class="nav navbar-nav navbar-right ">
-                        <li class="<%= typeof page !== 'undefined' && page === 'cuisines' ? 'active' : '' %>" id="home-li"><a href="/cuisines">Home</a></li>
-                        <li class="<%= typeof page !== 'undefined' && page === 'cuisines' ? 'active' : '' %>"><a href="/cuisines/new">Add a snap</a></li>
-                        <% if(!currentUser){ %>
-                        <li class="<%= typeof page !== 'undefined' && page === 'login' ? 'active' : '' %>"><a href="/login">Login</a></li>
-                        <li class="<%= typeof page !== 'undefined' && page === 'register' ? 'active' : ''  %>"><a href="/register">Sign Up</a></li>
-                        <% } else { %>
-                        <li><a href="/user/<%=currentUser.id%>"><%= currentUser.username %></a></li>
-                        <li><a href="/logout">Logout</a></li>
-                        <% } %>
-                    </ul>
-                </div>
-            </div>
-        </nav>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+    <title>Foodsnap</title>
+  </head>
+  <body>
     
-       <div class="container">
+<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+      <a class="navbar-brand" href="/">Foodsnap</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav ml-auto ">
+        <li class="nav-item">
+            <a class="nav-link" href="/cuisines/new">Add a new snap</a>
+        </li>
+
+        <% if(!currentUser){ %>
+
+        <li class="nav-item">
+            <a class="nav-link" href="/login">Login</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/register">Sign Up</a>
+        </li>
+
+        <% } else { %>
+
+        <li class="nav-item">
+            <a class="nav-link" href="/user/<%=currentUser.id%>"><%= currentUser.username %></a>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link" href="/logout">Logout</a>
+        </li>
+
+        <% } %>
+    </ul>
+  </div>
+</nav>
+
+
+<div class="container">
             <% if(error && error.length > 0){ %>
             <div class="alert alert-danger" role="alert">
                 <%= error %>
@@ -51,6 +65,7 @@
                   <%= success %>
             </div>
             <% } %>
-        </div>
-    </body>
-</html>
+</div>
+
+    
+  

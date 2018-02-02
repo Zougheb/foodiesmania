@@ -1,42 +1,65 @@
   <% include ../partials/header.ejs %>
-  <div class="container">
-      <div class="row">
-          <div class="thumbnail login_container add_new_container">
-          <h1 style="text-align: center;"> Add a Snap!</h1>
-          <div style="width: 80%; margin: 19px auto;">
-              <form action="/cuisines" method="post" enctype="multipart/form-data">
-                  <div class="form-group">
-                       <label for="name">Name</label>
-                       <input class="form-control add-new-input" type="text" name="name" id="name" placeholder="Spanish Paella">
-                  </div>
-                  <div class="form-group">
-                     <label for="image">Image</label>
-                     <input type="file" id="image" name="image" accept="image/*" required>
-                  </div>
-                  <div class="form-group">
-                     <label for="cost">Cost</label>
-                     <input class="form-control add-new-input" type="number" name="cost" id="cost" placeholder="9.99" step="0.01" min="0" required>
-                  </div>
-                  <div class="form-group">
-                    <label for="location">Location</label>
-                    <input class="form-control add-new-input" type="text" name="location" id="location" placeholder="San Francisco, CA">
-                  </div>
-                  <div class="form-group">
-                     <label for="description">Description</label>
-                     <input class="form-control add-new-input" type="text" name="description" id="description" placeholder="Valencian Rice Dish">
-                  </div>
-                   <div class="form-group">
-                 <button class="btn btn-lg btn-primary btn-block" id="login_button">Submit!</button>
 
-                   </div>
-              </form>
+  <div class="container" style="width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: center;
+  padding: 100px 0;
+
+">
+<div class="row">
+  <div class="col-md-8 ">
+<figure class="page-head-image" >
+    <img style="border-radius: 50%; height:300px;"  src="https://images.pexels.com/photos/3022/food-restaurant-camera-taking-photo.jpg?h=350&dpr=2&auto=compress&cs=tinysrgb" />
+  </figure>
+</div>
+      <div  class="col-md-8 ">
+        <h1 style="text-align: center;"> Add a new Snap!</h1>
+
+        <form action="/cuisines" method="post" enctype="multipart/form-data">
+            <div class="form-group row">
+                 <label for="name" class="col-sm-2 col-form-label">Name</label>
+                 <div class="col-sm-10">
+                 <input class="form-control form-control-lg add-new-input" type="text" name="name" id="name" placeholder="Spanish Paella">
+                 </div>
             </div>
-               <a class="go_back" href="/cuisines">Go Back</a>
 
-          </div>
+            <div class="form-group row">
+               <label for="image" class="col-sm-2 col-form-label">Image</label>
+               <div class="col-sm-10">
+               <input type="file" id="image" name="image" accept="image/*" required>
+               </div>
+            </div>
+
+            <div class="form-group row">
+               <label for="cost" class="col-sm-2 col-form-label">Cost</label>
+               <div class="col-sm-10">
+               <input class="form-control form-control-lg add-new-input" type="number" name="cost" id="cost" placeholder="9.99" step="0.01" min="0" required>
+               </div>
+            </div>
+
+            <div class="form-group row">
+              <label for="location" class="col-sm-2 col-form-label">Location</label>
+              <div class="col-sm-10">
+              <input class="form-control form-control-lg add-new-input" type="text" name="location" id="location" placeholder="San Francisco, CA">
+              </div>
+            </div>
+
+            <div class="form-group row">
+               <label for="description" class="col-sm-2 col-form-label">Review</label>
+               <div class="col-sm-10">
+               <textarea class="form-control form-control-lg add-new-input" type="text" name="description" id="description" placeholder="Valencian Rice Dish"></textarea>
+               </div>
+            </div>
+
+             <div class="form-group ">
+               <button class="btn btn-lg btn-primary "  id="login_button">Submit!</button>
+             </div>
+              <a class="go_back" href="/cuisines">Go Back</a>
+        </form>
+      </div>
+       
       </div>
   </div>
-  <footer class="profile-footer">
-    <div>Copyright &copy; 2018 | <span class="footer-brand">Foodsnap<span></div>
-</footer>
+  
   <% include ../partials/footer.ejs %>

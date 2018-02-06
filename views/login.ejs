@@ -1,33 +1,25 @@
 <% include  ./partials/header%>
-  <div class="container" style="width: 100%;
-  max-width: 600px;
-  margin: 0 auto;
-  text-align: center;
-  padding: 100px 0">
 
-<div class="row">
-       <div style="width: 80%; margin: 25px auto;">
-        <h1 style="text-align: center">Login</h1>
-           <form action="/login" method="post">
-             <div class="form-group row">
-                 <input class="form-control form-control-lg" type="text" name="username" placeholder="username">
-             </div>
-             <div class="form-group row">
-              
-                 <input class="form-control form-control-lg" type="password" name="password" placeholder="password">
-               
-             </div>
-             <div class="form-group row">
-                 <button class="btn btn-lg btn-primary btn-block" id="login_button">Login</button>
-             </div>
-             <div>
-               <a class="go_back" href="/cuisines">Go Back</a>
-             </div>
 
-         </form>
-         </div>
-       
-   </div>
+<div class="row ">
+    
+    <div class="col-md-12"> 
+      
+        <form class="form-signin" action="/login" method="post">
+          
+          <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
+          <label for="inputUsername" class="sr-only">Username</label>
+          <input type="text" id="inputUsername" class="form-control mb-3" name="username" placeholder="Email address" required autofocus>
+          <label for="inputPassword" class="sr-only">Password</label>
+          <input type="password" id="inputPassword" class="form-control mb-3" name="password" placeholder="Password" required>
+          <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+    </form>
+    <div class="form-signin">
+        <a href="/cuisines">Go Back</a>
+    </div>
+        
+    </div>
 </div>
+
 
 <% include  ./partials/footer %>

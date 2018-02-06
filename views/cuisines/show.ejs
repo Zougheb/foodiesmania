@@ -3,36 +3,36 @@
     <div class="container">
         <div class="row">
 
-            <div class="col-md-3">
-                <div id="map"></div>
-            </div>
+<div class="col-md-3">
+            <div id="map"></div>
+        </div>
 
             <div class="col-md-9">
                 
-                    <figure class="figure">
-                    <img  class="img-thumbnail" alt=""   src="<%= cuisine.image %>">
-                    <figcaption class="figure-caption">
-                        <h4><a><%=cuisine.name%></a></h4>
-                        <p><%= cuisine.description %></p>
-                        <p>$<%= cuisine.cost %></p>
+                   <div class="card mb-3">
+                    <img  class="card-img-top" src="<%= cuisine.image %>">
+                    <div class="card-body">
+                        <p class="float-right">$<%= cuisine.cost %></p>
+                        <h5 class="card-title"><%= cuisine.name %></h5>
                         <p>
-                            <em>Submitted by: <a href="/user/<%= cuisine.author.id %>"><%= cuisine.author.username %></a>, <%= moment(cuisine.createdAt).fromNow() %></em>
+                          <em>Submitted by: <a href="/user/<%= cuisine.author.id %>"><%= cuisine.author.username %></a>, <%= moment(cuisine.createdAt).fromNow() %></em>
                         </p>
+                        <hr>
 
-                        <% if(currentUser && cuisine.author.id.equals(currentUser._id) || currentUser && currentUser.isAdmin){ %>
-
-                        <a class="btn btn-xs btn-warning" href="/cuisines/<%= cuisine._id %>/edit">Edit</a>
-
-                        <form class="delete-form" action="/cuisines/<%= cuisine._id %>?_method=DELETE" method="POST">
-                            <button class="btn btn-xs btn-danger">Delete</button>
-                        </form>
-
-                      <% }%>
-                      </figcaption>
-                  </figure>
+                        <p class="card-text"><%= cuisine.description %></p>
                     
-               
+                   <% if(currentUser && cuisine.author.id.equals(currentUser._id) || currentUser && currentUser.isAdmin){ %> 
 
+                      <a class="btn-xs btn btn-outline-warning" href="/cuisines/<%= cuisine._id %>/edit">Edit</a>
+
+                      <form class="delete-form" action="/cuisines/<%= cuisine._id %>?_method=DELETE" method="POST">
+                        <button class="btn-xs btn btn-outline-danger">Delete</button>
+                      </form>
+
+                    <% }%>
+              </div>
+            </div>
+                    
                 <!--COMMENT SECTION START-->
 
                 <div class="well">
@@ -124,7 +124,7 @@
                 </strong>
 
                 <!--Show when the comment was made-->
-                <span class="pull-right"><%= moment(comment.createdAt).fromNow() %></span>
+                <span class="float-right"><%= moment(comment.createdAt).fromNow() %></span>
 
                 <!--Printing the comment-->
                 <p><%= comment.text %></p>
@@ -133,11 +133,11 @@
                 <% if (currentUser && currentUser._id.equals(comment.author.id)) { %>
 
                 <!--Edit button used for collapsing the edit comment form-->
-                <a class="btn btn-xs btn-warning" role="button" data-toggle="collapse" href="#collapseEdit<%= comment._id %>" aria-expanded="false" aria-controls="collapse<%= comment._id %>">Edit</a>
+                <a class=" btn-xs btn btn-outline-warning " role="button" data-toggle="collapse" href="#collapseEdit<%= comment._id %>" aria-expanded="false" aria-controls="collapse<%= comment._id %>">Edit</a>
 
                 <!--Delete comment button-->
                 <form id="delete-form" action="/cuisines/<%= cuisine._id %>/comments/<%= comment._id %>?_method=DELETE" method="POST" style="display: inline;">
-                    <button class="btn btn-xs btn-danger">Delete</button>
+                    <button class=" btn-xs btn btn-outline-danger">Delete</button>
                  </form>
 
                 <!--Edit comment form-->
@@ -175,32 +175,31 @@
  <!--COMMENT SECTION END-->
 
   <script>
-    function initMap() {
-      var lat = <%= cuisine.lat %>;
-      var lng = <%= cuisine.lng %>;
-      var center = {lat: lat, lng: lng };
-      var map = new google.maps.Map(document.getElementById('map'), {
-          zoom: 8,
-          center: center,
-          scrollwheel: false
-      });
-      var contentString = `
-        <strong><%= cuisine.name %><br />
-        <%= cuisine.location %></strong>
-        <p><%= cuisine.description %></p>
-      `
-      var infowindow = new google.maps.InfoWindow({
-        content: contentString
-      });
-      var marker = new google.maps.Marker({
-          position: center,
-          map: map
-      });
-      marker.addListener('click', function() {
-        infowindow.open(map, marker);
-      });
-    }
-  </script>
-  <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAK90bjibQ0nE6InKUgGExNL3Vde4n-C14&callback=initMap"></script>
-  
-  <% include ../partials/footer.ejs %>
+  function initMap() {
+    var lat = <%= cuisine.lat %>;
+    var lng = <%= cuisine.lng %>;
+    var center = {lat: lat, lng: lng };
+    var map = new google.maps.Map(document.getElementById('map'), {
+        zoom: 8,
+        center: center,
+        scrollwheel: false
+    });
+    var contentString = `
+      <strong><%= cuisine.name %><br />
+      <%= cuisine.location %></strong>
+      <p><%= cuisine.description %></p>
+    `
+    var infowindow = new google.maps.InfoWindow({
+      content: contentString
+    });
+    var marker = new google.maps.Marker({
+        position: center,
+        map: map
+    });
+    marker.addListener('click', function() {
+      infowindow.open(map, marker);
+    });
+  }
+</script>
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAK90bjibQ0nE6InKUgGExNL3Vde4n-C14&callback=initMap"></script>
+<% include ../partials/footer.ejs %>

@@ -1,25 +1,26 @@
 <% include  ./partials/header%>
 
-
 <div class="row ">
     
     <div class="col-md-12"> 
       
         <form class="form-signin" action="/login" method="post">
-          
-          <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
+          <h1 class="h3 mb-3 font-weight-normal">Sign in!</h1>
+
           <label for="inputUsername" class="sr-only">Username</label>
-          <input type="text" id="inputUsername" class="form-control mb-3" name="username" placeholder="Email address" required autofocus>
+          <input type="text" id="inputUsername" class="form-control mb-3" name="username" placeholder="username" required autofocus>
+
           <label for="inputPassword" class="sr-only">Password</label>
           <input type="password" id="inputPassword" class="form-control mb-3" name="password" placeholder="Password" required>
+          
           <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+          <a href="/cuisines">Go Back</a>
     </form>
-    <div class="form-signin">
-        <a href="/cuisines">Go Back</a>
-    </div>
+    
         
     </div>
 </div>
+
 
 
 <% include  ./partials/footer %>

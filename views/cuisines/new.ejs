@@ -1,18 +1,18 @@
   <% include ../partials/header.ejs %>
 
 <div class="container">
-<div class="row justify-content-center">
+  <div class="row justify-content-center">
   
     <div class="col-md-12 text-center">
       <figure class="page-head-image" >
         <img style="border-radius: 50%; height:250px;"  src="https://images.pexels.com/photos/3022/food-restaurant-camera-taking-photo.jpg?h=350&dpr=2&auto=compress&cs=tinysrgb" />
       </figure>
-        <h1> Add a New Cuisine</h1>
+        <h1> Add a New Snap!</h1>
       </div>
 
 
-        <div class="col-xs-12 col-md-8 col-lg-6">
-        <form action="/cuisines" method="post">
+   <div class="col-xs-12 col-md-8 col-lg-6">
+      <form action="/cuisines" method="post" enctype="multipart/form-data">
             <div class="form-group">
                  <label for="name">Name</label>
                  
@@ -44,7 +44,7 @@
             <div class="form-group">
                <label for="description">Review</label>
                
-               <textarea class="form-control form-control-lg" style="height: 200px;" type="text" name="description" id="description" placeholder="Valencian Rice Dish"></textarea>
+               <input class="form-control form-control-lg"  type="text" name="description" id="description" placeholder="Valencian Rice Dish">
                
             </div>
 
@@ -54,8 +54,7 @@
               <a class="go_back" href="/cuisines">Go Back</a>
         </form>
       </div>
-       
-      </div>
   </div>
+</div>
   
   <% include ../partials/footer.ejs %>

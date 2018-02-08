@@ -1,70 +1,70 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <!-- Make site responsive on mobile/tablet -->
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Foodsnap</title>
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-        <link rel="stylesheet" href="/stylesheets/main.css">
-    </head>
-    <body>
+<head>
+  <!-- Make site responsive on mobile/tablet -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Foodsnap</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link rel="stylesheet" href="/stylesheets/main.css">
+</head>
+<body>
 
-        <nav class="navbar navbar-expand-md mb-4" style="background-color: #d6d8db;">
-              <a class="navbar-brand" href="/">Foodsnap</a>
-              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-              </button>
-              <div class="collapse navbar-collapse" id="navbarCollapse">
-              
-                <ul class=" navbar-nav mr-auto">
-                    <li class="nav-item" >
-                      <a href="/cuisines" class="nav-link">Home</a>
-                    </li>
-                  </ul>
+<nav class="navbar navbar-expand-md mb-4" >
+  <a class="navbar-brand nav-link disabled" href="/">Foodsnap</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+<div class="collapse navbar-collapse" id="navbarCollapse">
+  
+    <ul class=" navbar-nav mr-auto">
+        <li class="nav-item" >
+          <a href="/cuisines" class="nav-link disabled">Home</a>
+        </li>
+    </ul>
 
-                  <ul class="nav navbar-nav navbar-right">
-                      <% if(!currentUser){ %>
-                          <li class="nav-item">
-                            <a href="/login" class="nav-link" >Login</a>
-                          </li>
+    <ul class="nav navbar-nav navbar-right">
+      <% if(!currentUser){ %>
+          <li class="nav-item">
+            <a href="/login" class="nav-link disabled" >Login</a>
+          </li>
 
-                          <li class="nav-item"><a href="/cuisines/new" class="nav-link">Add new cuisine</a>
-                          </li>
+          <li class="nav-item"><a href="/cuisines/new" class="nav-link disabled">Add a new snap</a>
+          </li>
 
-                          <li class="nav-item" >
-                            <a href="/register" class="nav-link">Sign Up</a>
-                          </li>
+          <li class="nav-item" >
+            <a href="/register" class="nav-link disabled">Sign Up</a>
+          </li>
 
-                      <% } else { %>
+      <% } else { %>
 
-                          <li class="nav-item">
-                            <a href="#" class="nav-link" ><%= currentUser.username %></a>
-                        </li>
+          <li class="nav-item">
+            <a href="/user/<%=currentUser.id%>" class="nav-link disabled" ><%= currentUser.username %></a>
+        </li>
 
-                        <li class="nav-item">
-                          <a href="/cuisines/new" class="nav-link">Add new cuisine</a>
-                        </li>
+        <li class="nav-item">
+          <a href="/cuisines/new" class="nav-link disabled">Add a new snap</a>
+        </li>
 
-                          <li class="nav-item">
-                            <a href="/logout" class="nav-link">Logout</a>
-                          </li>
+          <li class="nav-item">
+            <a href="/logout" class="nav-link disabled">Logout</a>
+          </li>
 
-                      <% } %>
-                  </ul>
-                
-              </div>
-            </nav>
-        
-     <div class="container">
-        
-        <% if(error && error.length > 0){ %>
-            <div class="alert alert-danger" role="alert">
-                <%= error %>
-            </div>
-        <% } %>
-        <% if(success && success.length > 0){ %>
-            <div class="alert alert-success" role="alert">
-                <%= success %>
-            </div>
-        <% } %>
-    </div>
+      <% } %>
+    </ul>
+    
+</div>
+</nav>
+  
+<div class="container">
+  
+  <% if(error && error.length > 0){ %>
+      <div class="alert alert-danger" role="alert">
+          <%= error %>
+      </div>
+  <% } %>
+  <% if(success && success.length > 0){ %>
+      <div class="alert alert-success" role="alert">
+          <%= success %>
+      </div>
+  <% } %>
+</div>

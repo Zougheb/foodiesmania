@@ -1,51 +1,54 @@
 <% include ../partials/header%>
-<div class="row container">
-    <div class="col-md-4" id="profile-col1">
-        <h3><%= user.username%></h3>
-        <div class="thumbnail" id="prof-img-container">
-            <img src="<%= user.avatar %>" alt="user profile image" id='avatar'>
-            <h3>Profile</h3>
-            <h5>Username: <%= user.username%></h5>
+<div class="container">
+<div class="row">
+<section class="jumbotron text-center">
+    <div class="container">
+     <img src="<%= user.avatar %>" alt="user profile image" id='avatar'>
+     
+        <% if(currentUser && cuisines.length > 0 && cuisines[0].author && cuisines[0].author.id.equals(currentUser._id) || currentUser && currentUser.isAdmin){ %>
 
-            <% if(currentUser && cuisines.length > 0 && cuisines[0].author && cuisines[0].author.id.equals(currentUser._id) || currentUser && currentUser.isAdmin){ %>
+        <form action="/user/profilePicUpload/<%= user.id%>?_method=PUT" method="post" enctype="multipart/form-data" target='picupload'>
 
-            <form action="/user/profilePicUpload/<%= user.id%>?_method=PUT" method="post" enctype="multipart/form-data" target='picupload'>
-                <div class="form-group">
-                    <label for="image">Image</label>
-                    <input type="file" id="image-file" name="image-file" accept="image/*" required>
+            <br>
+
+            <div class="form-group">
+                <label for="image">Image</label>
+                <input type="file" id="image-file" name="image-file" accept="image/*" required>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Upload Now"  id='image-profile-upload' />
+            </div>
+        </form>
+        <% }%>
+        <hr> 
+      <h1 class="jumbotron-heading"><%= user.username %>'s snaps:</h1>
+      <p class="lead text-muted">Thanks for viewing my profile,and taking a chance to view my prefered moments with food. Click on  photos below to add your comment and view  more information!</p>
+    </div>
+</section>
+<div class="album py-5 bg-light">
+    <div class="container">
+        <div class="row">
+            <%  cuisines.reverse().forEach(function(cuisine) { %>
+            <div class="col-md-4 col-sm-6">
+              <div class="card mb-4 box-shadow">
+                <img class="card-img-top" src="<%=cuisine.image %>" alt="<%= cuisines.name %>">
+                <div class="card-body">
+                  <p class="card-text">
+                    <a href="/cuisines/<%= cuisine.id %>"><%= cuisine.name %></a>
+                    <hr>
+                    Location: <%= cuisine.location %><br>
+                    Cost: $<%= cuisine.cost %>
+                    <span class="float-right"><%= moment(cuisine.createdAt).fromNow() %></span>
+                  </p>
                 </div>
-                <div class="form-group">
-                    <input type="submit" value="Upload Now" style='visibility:hidden' id='image-profile-upload' />
-                </div>
-            </form>
-
-            <% }%>
-
-            <!-- <h3>Profile</h3>
-            <h5>Username: <%= user.username%></h5>
-            <h5>Email: <a href="mailto:<%= user.email %>"><%=user.email%></a></h5> -->
+              </div>
+            </div>
+            <% }); %>
+            </div>
+        </div>
+        </div>
         </div>
     </div>
-    <div class="col-md-8" id="profile-col2">
-        <h3 id='profile-header' class="w3-circle"><%= user.username %>'s shared photos:</h3>
-        <ul class='cuisine-list'><%  cuisines.reverse().forEach(function(cuisine) { %>
-            <li>
-                <div class="cuisine-info-container">
-                    <img class="img-responsive" src="<%= cuisine.image %>">
-                    <div class="cuisine-info-cover">
-                        <a href="/cuisines/<%= cuisine.id %>"><%= cuisine.name %></a><br>
-<!--                         Posted on: <%= moment(cuisines.createdAt).fromNow()  %><br>
- -->                        Location: <%= cuisine.location %><br>
-                        Cost: $<%= cuisine.cost %><br>
-                    </div>
-                </div>
-            </li>
-            <% }); %>
-        </ul>
-    </div>
-</div>
-<iframe id='picupload' style='width:0px;height:0px' name='picupload' ></iframe>
+        
 <% include  ../partials/footer%>
-<footer class="profile-footer">
-    <div>Copyright &copy; 2018 | <span class="footer-brand">Foodsnap<span></div>
-</footer>
+

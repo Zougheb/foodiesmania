@@ -1,54 +1,56 @@
 <% include ../partials/header%>
 <div class="container">
 <div class="row">
-<section class="jumbotron text-center">
-    <div class="container">
-     <img src="<%= user.avatar %>" alt="user profile image" id='avatar'>
-     
-        <% if(currentUser && cuisines.length > 0 && cuisines[0].author && cuisines[0].author.id.equals(currentUser._id) || currentUser && currentUser.isAdmin){ %>
+    <section class="jumbotron text-center">
+        <div class="container">
+        <img src="<%= user.avatar %>" alt="user profile image" id='avatar'>
+         
+            <% if(currentUser && cuisines.length > 0 && cuisines[0].author && cuisines[0].author.id.equals(currentUser._id) || currentUser && currentUser.isAdmin){ %>
 
-        <form action="/user/profilePicUpload/<%= user.id%>?_method=PUT" method="post" enctype="multipart/form-data" target='picupload'>
+            <form action="/user/profilePicUpload/<%= user.id%>?_method=PUT" method="post" enctype="multipart/form-data" target='picupload'>
 
-            <br>
+                <br>
 
-            <div class="form-group">
-                <label for="image">Image</label>
-                <input type="file" id="image-file" name="image-file" accept="image/*" required>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Upload Now"  id='image-profile-upload' />
-            </div>
-        </form>
-        <% }%>
-        <hr> 
-      <h1 class="jumbotron-heading"><%= user.username %>'s snaps:</h1>
-      <p class="lead text-muted">Thanks for viewing my profile,and taking a chance to view my prefered moments with food. Click on  photos below to add your comment and view  more information!</p>
-    </div>
-</section>
-<div class="album py-5 bg-light">
-    <div class="container">
-        <div class="row">
-            <%  cuisines.reverse().forEach(function(cuisine) { %>
-            <div class="col-md-4 col-sm-6">
-              <div class="card mb-4 box-shadow">
-                <img class="card-img-top" src="<%=cuisine.image %>" alt="<%= cuisines.name %>">
-                <div class="card-body">
-                  <p class="card-text">
-                    <a href="/cuisines/<%= cuisine.id %>"><%= cuisine.name %></a>
-                    <hr>
-                    Location: <%= cuisine.location %><br>
-                    Cost: $<%= cuisine.cost %>
-                    <span class="float-right"><%= moment(cuisine.createdAt).fromNow() %></span>
-                  </p>
+                <div class="form-group">
+                    <label for="image">Image</label>
+                    <input type="file" id="image-file" name="image-file" accept="image/*" required>
                 </div>
-              </div>
-            </div>
-            <% }); %>
-            </div>
+                <div class="form-group">
+                    <input type="submit" value="Upload Now"  id='image-profile-upload' />
+                </div>
+            </form>
+            <% }%>
+
+            <hr> 
+
+          <h1 class="jumbotron-heading"><%= user.username %>'s snaps:</h1>
+          <p class="lead text-muted">Thanks for viewing my profile,and taking a chance to view my prefered moments with food. Click on  photos below to add your comment and view  more information!</p>
         </div>
-        </div>
+    </section>
+        <div class="album py-5 bg-light">
+            <div class="container">
+                <div class="row">
+                    <%  cuisines.reverse().forEach(function(cuisine) { %>
+                    <div class="col-md-4 col-sm-6">
+                      <div class="card mb-4 box-shadow">
+                        <img class="card-img-top" src="<%=cuisine.image %>" alt="<%= cuisines.name %>">
+                        <div class="card-body">
+                          <p class="card-text">
+                            <a href="/cuisines/<%= cuisine.id %>"><%= cuisine.name %></a>
+                            <hr>
+                            Location: <%= cuisine.location %><br>
+                            Cost: $<%= cuisine.cost %>
+                            <span class="float-right"><%= moment(cuisine.createdAt).fromNow() %></span>
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                    <% }); %>
+                </div>
+            </div>
         </div>
     </div>
+</div>
         
 <% include  ../partials/footer%>
 

@@ -1,79 +1,79 @@
 <% include ../partials/header.ejs %>
 
 <div class="container">
-<div class="row">
+  <div class="row">
 
-<div class="col-md-3">
-    <div id="map"></div>
-</div>
+      <div class="col-md-3">
+          <div id="map"></div>
+      </div>
 
     <div class="col-md-9">
-        
-           <div class="card mb-3">
-            <img  class="card-img-top" src="<%= cuisine.image %>">
-            <div class="card-body">
-                <p class="float-right">$<%= cuisine.cost %></p>
-                <h5 class="card-title"><%= cuisine.name %></h5>
-                <p>
-                  <em>Posted by: <a href="/user/<%= cuisine.author.id %>"><%= cuisine.author.username %></a>, <%= moment(cuisine.createdAt).fromNow() %></em>
-                </p>
-                <p>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-map-pin"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
-                    <%= cuisine.location %>
-                </p>
-                <hr>
-
-                <p class="card-text"><%= cuisine.description %></p>
             
-           <% if(currentUser && cuisine.author.id.equals(currentUser._id) || currentUser && currentUser.isAdmin){ %> 
+          <div class="card mb-3">
+                <img  class="card-img-top" src="<%= cuisine.image %>">
+                <div class="card-body">
+                    <p class="float-right">$<%= cuisine.cost %></p>
+                    <h5 class="card-title"><%= cuisine.name %></h5>
+                    <p>
+                      <em>Posted by: <a href="/user/<%= cuisine.author.id %>"><%= cuisine.author.username %></a>, <%= moment(cuisine.createdAt).fromNow() %></em>
+                    </p>
+                    <p>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-map-pin"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                        <%= cuisine.location %>
+                    </p>
+                    <hr>
 
-              <a class="btn-sm btn btn-outline-warning" href="/cuisines/<%= cuisine._id %>/edit">Edit</a>
+                    <p class="card-text"><%= cuisine.description %></p>
+                
+               <% if(currentUser && cuisine.author.id.equals(currentUser._id) || currentUser && currentUser.isAdmin){ %> 
 
-              <form class="delete-form" action="/cuisines/<%= cuisine._id %>?_method=DELETE" method="POST">
-                <button class="btn-sm btn btn-outline-danger">Delete</button>
-              </form>
+                  <a class="btn-sm btn btn-outline-warning" href="/cuisines/<%= cuisine._id %>/edit">Edit</a>
 
-            <% }%>
+                  <form class="delete-form" action="/cuisines/<%= cuisine._id %>?_method=DELETE" method="POST">
+                    <button class="btn-sm btn btn-outline-danger">Delete</button>
+                  </form>
+
+                <% }%>
+              </div>
+          </div>
+      <div class="card">
+        <div class="card-body">
+                        <div class="text-right">
+                            <a class="btn btn-success" href="/cuisines/<%= cuisine._id %>/comments/new">Add New Comment</a>
+                        </div>
+                        <br>    
+          <div class="row">
+                  <% cuisine.comments.forEach(function(comment){ %>
+            <div class="col-md-12 mb-2">
+              <div class="card">
+                <div class="card-body">
+                    <div class="float-left">
+                        <p class="card-title"><strong><%= comment.author.username %></strong></p>
+                        <p class="card-text"><%= comment.text %></p>
+                    </div>
+                    <div class="float-right">
+                       <p><%= moment(comment.createdAt).fromNow() %></p> 
+                       <% if(currentUser && comment.author.id.equals(currentUser._id) || currentUser && currentUser.isAdmin){ %>
+                        <div class="float-right">
+                            <a class="btn btn-sm btn-outline-warning" 
+                               href="/cuisines/<%=cuisine._id %>/comments/<%=comment._id %>/edit">
+                                Edit
+                            </a>
+                            <form class="delete-form" action="/cuisines/<%=cuisine._id %>/comments/<%=comment._id %>?_method=DELETE" method="POST">
+                                <input type="submit" class="btn btn-sm btn-outline-danger" value="Delete">
+                            </form>
+                        </div>
+                     <% } %>
+                    </div>    
+                  </div>
+              </div>
+            </div>
+                <% }) %>
+          </div>
+        </div>
       </div>
     </div>
-        <div class="card">
-                <div class="card-body">
-                <div class="text-right">
-                    <a class="btn btn-success" href="/cuisines/<%= cuisine._id %>/comments/new">Add New Comment</a>
-                </div>
-                <br>    
-       <div class="row">
-                <% cuisine.comments.forEach(function(comment){ %>
-                        <div class="col-md-12 mb-2">
-                          <div class="card">
-                            <div class="card-body">
-                                <div class="float-left">
-                                    <p class="card-title"><strong><%= comment.author.username %></strong></p>
-                                    <p class="card-text"><%= comment.text %></p>
-                                </div>
-                                <div class="float-right">
-                                   <p><%= moment(comment.createdAt).fromNow() %></p> 
-                                   <% if(currentUser && comment.author.id.equals(currentUser._id) || currentUser && currentUser.isAdmin){ %>
-                            <div class="float-right">
-                                <a class="btn btn-sm btn-outline-warning" 
-                                   href="/cuisines/<%=cuisine._id %>/comments/<%=comment._id %>/edit">
-                                    Edit
-                                </a>
-                                <form class="delete-form" action="/cuisines/<%=cuisine._id %>/comments/<%=comment._id %>?_method=DELETE" method="POST">
-                                    <input type="submit" class="btn btn-sm btn-outline-danger" value="Delete">
-                                </form>
-                            </div>
-                         <% } %>
-                            </div>    
-                        </div>
-                        </div>
-                    </div>
-                <% }) %>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+  </div>
 </div>
 
   <script>
@@ -104,8 +104,8 @@
   }
 </script>
 <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAK90bjibQ0nE6InKUgGExNL3Vde4n-C14&callback=initMap"></script>
-</div>
-</div>
+  </div>
+ </div>
 </div>
 <% include ../partials/footer.ejs %>
 

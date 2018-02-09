@@ -59,9 +59,5 @@
   }), function(req, res){
   });
 
-  
-
-// USER PROFILE
-
 
   module.exports = router;

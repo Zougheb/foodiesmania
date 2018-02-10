@@ -15,10 +15,9 @@ body {
 }
 
 
-.navbar{
-  background-color: transparent; 
+.navbar{ 
   font-family: 'Open Sans Condensed', sans-serif;
-  font-weight: 300;
+  font-weight: 500;
   text-transform: uppercase;
 }
 
@@ -27,6 +26,7 @@ body {
   font-weight: 300;
   color: #20c997;
 }
+
 .card-title{
   font-family: 'Open Sans Condensed', sans-serif;
   font-weight: 300;
@@ -103,6 +103,7 @@ color: #20c997;
 .delete-form {
     display: inline;
 }
+
 
 /* Google Maps */
 #map {

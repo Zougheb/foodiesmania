@@ -1,45 +1,37 @@
 <% include  ../partials/header.ejs %>
-<div class="container">
-   <div class="row">
-   <% cuisines.forEach(function(cuisines){%>
-       <div class="col-md-8">
-           <div class="image-container">                
-               <img class="img-responsive" src="<%= cuisines.image %>">
-           </div>
-       </div>
 
-       <div class="col-md-4">
-           <div class="preview">
-               <div class="caption-full">
-                   <h4><a id="cuisine-name" href="/cuisines/<%= cuisines._id %>"><%=cuisines.name%></a></h4>
-                   <p><%= cuisines.description %></p>
-                   <p>Cost: $<%=cuisines.cost%></p>
-                   <p><em><a href="/user/<%= cuisines.author.id %>">@<%= cuisines.author.username %></a>, <%= moment(cuisines.createdAt).fromNow() %></em></p>
-                   <span class="btn btn-default"><a class="glyphicon glyphicon-heart-empty like-button"></a></span>
-                   <a href="/cuisines/<%= cuisines._id %>" class="btn btn-default"><span class="glyphicon glyphicon-info-sign"></span></a><br><br>
-                   <% if(currentUser && cuisines.author.id.equals(currentUser._id) || currentUser && currentUser.isAdmin){ %>
-                   <a href="/cuisines/<%= cuisines._id %>/edit" class="btn btn-default">
-                       <span class="glyphicon glyphicon-edit"></span>Edit</a>
-                       <form class="delete-form" action="/cuisines/<%= cuisines._id %>?_method=DELETE" method="POST">
-                             <button class="btn btn-default"><span class="glyphicon glyphicon-trash"></span>Delete</button>
-                       </form>
-                     <% }%>
-               </div>
-           </div>
-       </div>
-       <% }); %>
-   </div>
+<div class="container" >
+
+  <div class="row">
+
+   <% cuisines.forEach(function(cuisines){%>
+
+       
+    <div class="col-lg-4 col-md-4 col-sm-6 mb-2">
+      <div class="card-deck">
+          <div class="card">
+              <img class="card-img-top" src="<%=cuisines.image %>" alt="<%= cuisines.name %>">
+              <div class="card-body">
+                <h5 class="card-title"><%= cuisines.name %></h5>
+                <p class="card-text">
+                  <em>
+                    <a href="/user/<%= cuisines.author.id %>">
+                    <strong>@<%= cuisines.author.username %></strong>
+                    </a>
+                    <span class="float-right"><%= moment(cuisines.createdAt).fromNow() %></span> 
+                  </em>
+                </p>
+                <p class="card-text"><%= cuisines.description.substring(0, 100) %>...<a href="/cuisines/<%= cuisines._id %>">Know More</a> </p>
+                
+              </div>
+            </div>
+        </div>
+      </div>
+           <% }); %>
+  </div>
 </div>
-<footer class="profile-footer">
-   <div>Copyright &copy; 2018 | <span class="footer-brand">Foodsnap<span></div>
-</footer>
-<script>
- $(function($) {
- $(document).on('click', '.like-button', function(event) {
-   var $target = $(event.target);
-   console.log($target);
-   $target.toggleClass('glyphicon-heart-empty glyphicon-heart');
- });
-});
-</script>
+
+
  <% include ../partials/footer.ejs %>
+
+ 

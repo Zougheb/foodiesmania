@@ -22,6 +22,7 @@
       PORT           = process.env.PORT || 8080,
       dotenv         = require('dotenv').config(),
       seedDB         = require ("./seeds");
+      
 
   // requiring routes
   var commentRoutes    = require("./routes/comments"),

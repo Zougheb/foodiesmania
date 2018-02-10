@@ -69,7 +69,8 @@
     res.render("user/uploadComplete");
   });
 
-    module.exports = router;
+
+module.exports = router;
   
 
   

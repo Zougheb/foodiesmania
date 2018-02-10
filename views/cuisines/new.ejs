@@ -1,42 +1,50 @@
   <% include ../partials/header.ejs %>
-  <div class="container">
-      <div class="row">
-          <div class="thumbnail login_container add_new_container">
-          <h1 style="text-align: center;"> Add a Snap!</h1>
-          <div style="width: 80%; margin: 19px auto;">
-              <form action="/cuisines" method="post" enctype="multipart/form-data">
-                  <div class="form-group">
-                       <label for="name">Name</label>
-                       <input class="form-control add-new-input" type="text" name="name" id="name" placeholder="Spanish Paella">
-                  </div>
-                  <div class="form-group">
-                     <label for="image">Image</label>
-                     <input type="file" id="image" name="image" accept="image/*" required>
-                  </div>
-                  <div class="form-group">
-                     <label for="cost">Cost</label>
-                     <input class="form-control add-new-input" type="number" name="cost" id="cost" placeholder="9.99" step="0.01" min="0" required>
-                  </div>
-                  <div class="form-group">
-                    <label for="location">Location</label>
-                    <input class="form-control add-new-input" type="text" name="location" id="location" placeholder="San Francisco, CA">
-                  </div>
-                  <div class="form-group">
-                     <label for="description">Description</label>
-                     <input class="form-control add-new-input" type="text" name="description" id="description" placeholder="Valencian Rice Dish">
-                  </div>
-                   <div class="form-group">
-                 <button class="btn btn-lg btn-primary btn-block" id="login_button">Submit!</button>
 
-                   </div>
-              </form>
+<div class="container">
+  <div class="row justify-content-center">
+  
+    <div class="col-md-12 text-center">
+      <figure class="page-head-image" >
+        <img style="border-radius: 50%; height:250px;"  src="https://images.pexels.com/photos/3022/food-restaurant-camera-taking-photo.jpg?h=350&dpr=2&auto=compress&cs=tinysrgb" />
+      </figure>
+        <h1> Add a New Snap!</h1>
+      </div>
+
+
+   <div class="col-xs-12 col-md-8 col-lg-6">
+      <form action="/cuisines" method="post" enctype="multipart/form-data">
+            <div class="form-group">
+                 <label for="name">Name</label>
+                 <input class="form-control form-control-lg" type="text" name="name" id="name" placeholder="Spanish Paella">    
             </div>
-               <a class="go_back" href="/cuisines">Go Back</a>
 
-          </div>
+            <div class="form-group">
+               <label for="image">Image</label>
+               <input class="form-control form-control-lg" type="file" id="image" name="image" accept="image/*" required>
+            </div>
+
+            <div class="form-group">
+               <label for="cost">Cost</label>
+               <input class="form-control form-control-lg" type="number" name="cost" id="cost" placeholder="9.99" step="0.01" min="0" required>
+            </div>
+
+            <div class="form-group">
+              <label for="location">Location</label>
+              <input class="form-control form-control-lg" type="text" name="location" id="location" placeholder="San Francisco, CA">
+            </div>
+
+            <div class="form-group">
+               <label for="description">Review</label>
+               <textarea class="form-control form-control-lg"  type="text" name="description" id="description" placeholder="Write your review here..."></textarea>   
+            </div>
+
+             <div class="form-group ">
+               <button class="btn btn-lg btn-primary btn-block "  id="login_button">Submit!</button>
+             </div>
+              <a class="go_back" href="/cuisines">Go Back</a>
+        </form>
       </div>
   </div>
-  <footer class="profile-footer">
-    <div>Copyright &copy; 2018 | <span class="footer-brand">Foodsnap<span></div>
-</footer>
+</div>
+  
   <% include ../partials/footer.ejs %>

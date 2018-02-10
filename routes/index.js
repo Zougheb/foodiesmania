@@ -44,6 +44,13 @@
       res.render("login", {page: "login"});
   });
 
+
+// LOGOUT ROUTES AND LOGIC
+  router.get("/logout", function(req, res){
+      req.logout();
+      req.flash("success", "We will miss you :( ");
+      res.redirect("/cuisines");
+  });
   // handling login logic
   router.post("/login", passport.authenticate("local",
        {
@@ -51,15 +58,6 @@
            failureRedirect: "/login"
   }), function(req, res){
   });
-
-  // LOGOUT ROUTES AND LOGIC
-  router.get("/logout", function(req, res){
-      req.logout();
-      req.flash("success", "Logged out");
-      res.redirect("/cuisines");
-  });
-
-// USER PROFILE
 
 
   module.exports = router;

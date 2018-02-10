@@ -1,111 +1,119 @@
-body{
-   font-family: "Cambria",Helvetica,Arial,sans-serif;
-   padding-top: 70px;
+
+html{
+  position: relative;
+  min-height: 100%;
+
+
 }
 
-.image-container img {
-   width: 100%;
-   margin: 10px;
-   padding-bottom: 0;
-   border: 1px solid #ddd;
-   border-radius: 4px;
+
+body {
+  height: 100%;
+  font-family: 'Abel', sans-serif;
+  font-weight: 200;
+  margin-bottom: 60px;
+  background-color: #f6f7f4;
 }
-.thumbnail {
-   padding: 0;
+
+
+.navbar{ 
+  font-family: 'Open Sans Condensed', sans-serif;
+  font-weight: 500;
+  text-transform: uppercase;
 }
-.thumbnail .caption-full {
-   padding: 9px;
+
+.navbar .navbar-brand{
+  font-family: 'Open Sans Condensed', sans-serif;
+  font-weight: 300;
+  color: #20c997;
+
 }
+
+.card-title{
+  font-family: 'Open Sans Condensed', sans-serif;
+  font-weight: 300;
+  color: #20c997;
+}
+
+.form-signin h1{
+font-size: 40px;
+font-family: 'Roboto Mono', monospace;
+font-weight: 150; 
+color: #20c997;
+}
+
+
+.form-signin {
+  width: 100%;
+  max-width: 330px;
+  padding: 50px;
+  margin: 0 auto;
+  
+}
+
+
+.form-signin .form-control {
+  position: relative;
+  box-sizing: border-box;
+  height: auto;
+  padding: 10px;
+  font-size: 16px;
+}
+.form-signin .form-control:focus {
+  z-index: 2;
+}
+.form-signin input[type="text"] {
+  margin-bottom: -1px;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+.form-signin input[type="password"] {
+  margin-bottom: 10px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+
+}
+
+.form-signin button {
+  background-color: #07a1f4;
+}
+
+.footer {
+  position: absolute;
+  text-align: center;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 60px;
+  line-height: 60px; /* Vertically center the text there */
+  background-color: transparent;
+}
+
+h1{
+font-size: 40px;
+font-family: 'Roboto Mono', monospace;
+font-weight: 150; 
+color: #20c997;
+
+}
+
+.container h1{
+font-size: 40px;
+font-family: 'Roboto Mono', monospace;
+font-weight: 150; 
+color: #20c997;
+}
+
+
 .delete-form {
-   display: inline;
-}
-.like {
-    padding-top: 3ex;
-    padding-left: 3ex;
-}
-.preview{
-    padding:2.5ex;
-
-}
-.navbar-default {
-    background-color: #555;
-    color: #fff !important;
-}
-.navbar-brand {
-    color: #5cb85c !important;
-    font-size: 30px;
-    font-family: 'Berkshire Swash', cursive;
-    text-shadow: 1px 1px #000;
-}
-.navbar-default .navbar-nav>li>a{
-   color: #ddd;
-   text-transform: uppercase;
-   font-size: 16px;
-}
-.navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:focus, .navbar-default .navbar-nav>.active>a:hover {
-   color:#ddd;
-   background-color: #555;
-   text-transform: uppercase;
+    display: inline;
 }
 
-#home-li {
-    background-color: #555 !important;
-}
+
 
 /* Google Maps */
 #map {
    height: 400px;
    width: 100%;
-}
+ }
 
-.form-control:focus {
-box-shadow:none;
--webkit-box-shadow:none;
-border-color:#cccccc ;
-}
-
-.navbar-default .navbar-nav>li>a{
-   color: #ddd;
-}
-
-a:hover{
-   text-decoration: none;
-   color:#333;
-}
-a.glyphicon-heart-empty{
-   color: #333;
-}
-#cuisine-name {
-    color: #5cb85c ;
-    text-shadow: 1px 1px #000;
-}
-
-.login_container{
-   width: 40%;
-   margin-left: 30%;
-   margin-top: 10%;
-   padding: 10px;
-   border: dotted solid double dashed;
-}
-
-.login_container h1{
-   color:#333 !important;
-   font-size: 30px;
-}
-
-.form-control {
-   background-color: #fff;
-   font-size: 15px;
-
-}
-.go_back {
-   margin-left: 40%;
-}
-
-input.form-control{
-   background-color: #f5f599;
-}
-.add_new_container {
-  width: 40%;
-  margin-top: 50px;
-}

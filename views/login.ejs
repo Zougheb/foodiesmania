@@ -1,29 +1,27 @@
 <% include  ./partials/header%>
 
-<div class="row">
-   <div class="thumbnail login_container">
-    <span>
-     <h1 style="text-align: center">Login</h1>
-       <div style="width: 60%; margin: 25px auto;">
-           <form action="/login" method="post">
-             <div class="form-group">
-                 <input class="form-control" type="text" name="username" placeholder="username">
-             </div>
-             <div class="form-group">
-                 <input class="form-control" type="password" name="password" placeholder="password">
-             </div>
-             <div class="form-group">
+<div class="row ">
+    
+    <div class="col-md-12"> 
+      
+        <form class="form-signin" action="/login" method="post">
+          <h1 class="h3 mb-3 font-weight-normal">Sign in!</h1>
 
-                 <button class="btn btn-lg btn-primary btn-block" id="login_button">Login</button>
-             </div>
-             <div>
-               <a class="go_back" href="/cuisines">Go Back</a>
-             </div>
+          <label for="inputUsername" class="sr-only">Username</label>
+          <input type="text" id="inputUsername" class="form-control mb-3" name="username" placeholder="username" required autofocus>
 
-         </form>
-         </div>
-       </span>
-   </div>
+          <label for="inputPassword" class="sr-only">Password</label>
+          <input type="password" id="inputPassword" class="form-control mb-3" name="password" placeholder="Password" required>
+          
+          <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+          <a href="/cuisines">Go Back</a>
+    </form>
+    
+        
+    </div>
+    
 </div>
+
+
 
 <% include  ./partials/footer %>

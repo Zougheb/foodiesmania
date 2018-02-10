@@ -1,4 +1,4 @@
-  var express    = require("express");
+var express    = require("express");
   var router     = express.Router();
   var Cuisine = require("../models/cuisine");
   var middleware = require("../middleware");
@@ -52,18 +52,22 @@
       username: req.user.username
   }
     var cost = req.body.cost;
+
     //Location Code - Geocode Package
     geocoder.geocode(req.body.location, function (err, data) {
       if (err || data.status === 'ZERO_RESULTS') {
       req.flash('error', 'Invalid address');
       return res.redirect('back');
+      console.log(data);
     }
       var lat        = data.results[0].geometry.location.lat;
       var lng        = data.results[0].geometry.location.lng;
       var location   = data.results[0].formatted_address;
       var newCuisine = {name: name,  description: desc, cost: cost, author:author, location: location, lat: lat, lng: lng};
+
     cloudinary.uploader.upload(req.file.path, function(result) {
             // add cloudinary url for the image to the cuisine object under image property
+            console.log(result);
             newCuisine.image = result.secure_url;
 
             Cuisine.create(newCuisine, function(err, cuisine) {
@@ -71,7 +75,7 @@
                 req.flash('error', err.message);
                 return res.redirect('back');
               }
-              res.redirect('/cuisines');
+              return res.redirect('/cuisines');
             });
         });
     });

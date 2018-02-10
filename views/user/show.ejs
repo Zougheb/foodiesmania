@@ -3,7 +3,7 @@
 <div class="row">
     <section class="jumbotron text-center">
         <div class="container">
-        <img src="<%= user.avatar %>" alt="user profile image" id='avatar'>
+        <img class="profile" src="<%= user.avatar %>" alt="user profile image" id='avatar'>
          
             <% if(currentUser && cuisines.length > 0 && cuisines[0].author && cuisines[0].author.id.equals(currentUser._id) || currentUser && currentUser.isAdmin){ %>
 

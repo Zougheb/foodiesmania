@@ -2,13 +2,10 @@
 
 <div class="container">
   <div class="row">
-
       <div class="col-md-3">
           <div id="map"></div>
       </div>
-
-    <div class="col-md-9">
-            
+    <div class="col-md-9"> 
           <div class="card mb-3">
                 <img  class="card-img-top" src="<%= cuisine.image %>">
                 <div class="card-body">
@@ -22,26 +19,21 @@
                         <%= cuisine.location %>
                     </p>
                     <hr>
-
                     <p class="card-text"><%= cuisine.description %></p>
-                
                <% if(currentUser && cuisine.author.id.equals(currentUser._id) || currentUser && currentUser.isAdmin){ %> 
-
                   <a class="btn-sm btn btn-outline-warning" href="/cuisines/<%= cuisine._id %>/edit">Edit</a>
-
                   <form class="delete-form" action="/cuisines/<%= cuisine._id %>?_method=DELETE" method="POST">
                     <button class="btn-sm btn btn-outline-danger">Delete</button>
                   </form>
-
                 <% }%>
               </div>
           </div>
       <div class="card">
         <div class="card-body">
-                        <div class="text-right">
-                            <a class="btn btn-success" href="/cuisines/<%= cuisine._id %>/comments/new">Add New Comment</a>
-                        </div>
-                        <br>    
+              <div class="text-right">
+                  <a class="btn btn-success" href="/cuisines/<%= cuisine._id %>/comments/new">Add New Comment</a>
+              </div>
+              <br>    
           <div class="row">
                   <% cuisine.comments.forEach(function(comment){ %>
             <div class="col-md-12 mb-2">
@@ -78,27 +70,27 @@
 
   <script>
   function initMap() {
-    var lat = <%= cuisine.lat %>;
-    var lng = <%= cuisine.lng %>;
-    var center = {lat: lat, lng: lng };
-    var map = new google.maps.Map(document.getElementById('map'), {
+    let lat = <%= cuisine.lat %>;
+    let lng = <%= cuisine.lng %>;
+    let center = {lat: lat, lng: lng };
+    let map = new google.maps.Map(document.getElementById('map'), {
         zoom: 8,
         center: center,
         scrollwheel: false
     });
-    var contentString = `
+    let contentString = `
       <strong><%= cuisine.name %><br />
       <%= cuisine.location %></strong>
       <p><%= cuisine.description %></p>
     `
-    var infowindow = new google.maps.InfoWindow({
+    let infowindow = new google.maps.InfoWindow({
       content: contentString
     });
-    var marker = new google.maps.Marker({
+    let marker = new google.maps.Marker({
         position: center,
         map: map
     });
-    marker.addListener('click', function() {
+    marker.addListener('click', () => {
       infowindow.open(map, marker);
     });
   }

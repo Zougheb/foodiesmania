@@ -1,10 +1,10 @@
-  var express    = require("express");
-  var router     = express.Router();
-  var Cuisine = require("../models/cuisine");
-  var middleware = require("../middleware");
-  var geocoder = require("geocoder");
-  var multer = require('multer');
-  var storage = multer.diskStorage({
+  const  express    = require("express");
+  const router      = express.Router();
+  const Cuisine     = require("../models/cuisine");
+  const middleware  = require("../middleware");
+  const geocoder    = require("geocoder");
+  const multer      = require('multer');
+  const storage     = multer.diskStorage({
     filename: function(req, file, callback) {
       callback(null, Date.now() + file.originalname);
     }
@@ -12,7 +12,7 @@
 
 
 
-  var imageFilter = function (req, file, cb) {
+  var imageFilter =  (req, file, cb) => {
       // accept image files only
       if (!file.originalname.match(/\.(jpg|jpeg|png|gif)$/i)) {
           return cb(new Error('Only image files are allowed!'), false);
@@ -42,36 +42,40 @@
   });
 
   // CREATE -- ADD NEW CUISINE TO DB
-  router.post("/cuisines",middleware.isLoggedIn, upload.single('image'), function(req,res){
+  router.post("/cuisines",middleware.isLoggedIn, upload.single('image'),(req,res) => {
     // get data from form and add to data array
-    var name = req.body.name;
-    var image = req.body.image;
-    var desc = req.body.description;
-    var author = {
+    let name = req.body.name;
+    let image = req.body.image;
+    let description = req.body.description;
+    let author = {
       id: req.user._id,
       username: req.user.username
   }
-    var cost = req.body.cost;
+    let cost = req.body.cost;
+
     //Location Code - Geocode Package
-    geocoder.geocode(req.body.location, function (err, data) {
+    geocoder.geocode(req.body.location,  (err, data)=> {
       if (err || data.status === 'ZERO_RESULTS') {
       req.flash('error', 'Invalid address');
       return res.redirect('back');
+      console.log(data);
     }
       var lat        = data.results[0].geometry.location.lat;
       var lng        = data.results[0].geometry.location.lng;
       var location   = data.results[0].formatted_address;
-      var newCuisine = {name: name,  description: desc, cost: cost, author:author, location: location, lat: lat, lng: lng};
-    cloudinary.uploader.upload(req.file.path, function(result) {
+      var newCuisine = { name, description, cost, author, location: location, lat: lat, lng: lng};
+          
+    cloudinary.uploader.upload(req.file.path, (result)=> {
             // add cloudinary url for the image to the cuisine object under image property
+            console.log(result);
             newCuisine.image = result.secure_url;
 
-            Cuisine.create(newCuisine, function(err, cuisine) {
+            Cuisine.create(newCuisine, (err, cuisine) => {
               if (err) {
                 req.flash('error', err.message);
                 return res.redirect('back');
               }
-              res.redirect('/cuisines');
+              return res.redirect('/cuisines');
             });
         });
     });
@@ -79,13 +83,13 @@
 
 
   // NEW -- SHOW FORM TO CREATE NEW CUISINES
-       router.get("/cuisines/new",middleware.isLoggedIn, function(req, res){
+       router.get("/cuisines/new",middleware.isLoggedIn, (req, res)=>{
            res.render("cuisines/new");
 
   });
 
   // SHOW - show more info about one cuisine
-  router.get("/cuisines/:id", function(req, res){
+  router.get("/cuisines/:id", (req, res)=>{
       // find the cuisine with provided ID
       Cuisine.findById(req.params.id).populate("comments").exec(function(err, foundCuisine){
           if(err || !foundCuisine){
@@ -100,16 +104,16 @@
   });
 
   // EDIT CUISINE ROUTE
-  router.get("/cuisines/:id/edit", middleware.checkCuisineOwnership, function(req, res){
-      Cuisine.findById(req.params.id, function(err, foundCuisine){
+  router.get("/cuisines/:id/edit", middleware.checkCuisineOwnership, (req, res)=>{
+      Cuisine.findById(req.params.id, (err, foundCuisine) => {
           res.render("cuisines/edit", {cuisine: foundCuisine});
       });
   });
 
 
   // UPDATE CUISINE ROUTE
-  router.put("/cuisines/:id", function(req, res){
-      geocoder.geocode(req.body.cuisine.location, function (err, data) {
+  router.put("/cuisines/:id", (req, res) => {
+      geocoder.geocode(req.body.cuisine.location,  (err, data) => {
       if(err) {
       console.log('Error', err.message);
       console.log('Data', data);
@@ -129,7 +133,7 @@
           lat: lat,
           lng: lng
        };
-      Cuisine.findByIdAndUpdate(req.params.id, {$set: newData}, function(err, cuisine){
+      Cuisine.findByIdAndUpdate(req.params.id, {$set: newData}, (err, cuisine)=>{
           if(err){
               req.flash("error", err.message);
               res.redirect("back");
@@ -142,8 +146,8 @@
   });
 
   // DESTROY CUISINE ROUTES
-  router.delete("/cuisines/:id", middleware.checkCuisineOwnership, function(req, res){
-      Cuisine.findByIdAndRemove(req.params.id, function(err){
+  router.delete("/cuisines/:id", middleware.checkCuisineOwnership, (req, res)=>{
+      Cuisine.findByIdAndRemove(req.params.id, (err)=>{
         if(err){
             res.redirect("/cuisines");
         } else {
@@ -163,7 +167,7 @@
   function checkCuisineOwnership(req, res, next){
       // is user logged in?
          if(req.isAuthenticated()){
-             Cuisine.findById(req.params.id, function(err,foundCuisine){
+             Cuisine.findById(req.params.id, (err,foundCuisine)=>{
                   if(err){
               res.redirect("/cuisines");
          } else{

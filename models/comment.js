@@ -1,6 +1,6 @@
-  var mongoose = require("mongoose");
+  const mongoose = require("mongoose");
 
-  var commentSchema = mongoose.Schema({
+  const commentSchema = mongoose.Schema({
       text: String,
       createdAt: { type: Date, default: Date.now },
       author: {
@@ -13,4 +13,5 @@
   });
 
 
-  module.exports = mongoose.model("Comment", commentSchema);
+  const Comment = mongoose.model("Comment", commentSchema);
+module.exports = Comment;

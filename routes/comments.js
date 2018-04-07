@@ -1,11 +1,11 @@
-  var express    = require("express");
-  var router     = express.Router();
-  var Cuisine = require("../models/cuisine");
-  var Comment    = require ("../models/comment");
-  var middleware = require("../middleware");
+  const express    = require("express");
+  const router     = express.Router();
+  const Cuisine    = require("../models/cuisine");
+  const Comment    = require ("../models/comment");
+  const middleware = require("../middleware");
 
-  // Comments New
-  router.get("/cuisines/:id/comments/new", middleware.isLoggedIn, function(req, res){
+  // sow comments
+  router.get("/cuisines/:id/comments/new", middleware.isLoggedIn, (req, res)=>{
       // find cuisine by id
       Cuisine.findById(req.params.id, function(err, cuisine){
           if(err){
@@ -16,14 +16,14 @@
       });
   });
 
-  // Comments Create
-  router.post("/cuisines/:id/comments", middleware.isLoggedIn, function(req, res){
-      Cuisine.findById(req.params.id, function(err, cuisine){
+  //Create comments
+  router.post("/cuisines/:id/comments", middleware.isLoggedIn, (req, res)=>{
+      Cuisine.findById(req.params.id, (err, cuisine)=>{
           if(err){
               console.log(err);
               res.redirect("/cuisines");
           } else {
-              Comment.create(req.body.comment, function(err, comment){
+              Comment.create(req.body.comment, (err, comment)=>{
                   if(err){
                       req.flash("error", "Something went wrong!");
                       console.log(err);
@@ -35,7 +35,6 @@
                       comment.save();
                       cuisine.comments.push(comment);
                       cuisine.save();
-                      // console.log(comment);
                       req.flash("success", "Successfully added comment");
                       res.redirect("/cuisines/" + cuisine._id);
                   }

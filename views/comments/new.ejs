@@ -1,10 +1,10 @@
- <!-- Disabling the comment form after adding the collapsing comment form on the show form! -->
-
- <!--  <% include ../partials/header.ejs %>
-  <div class="container">
-      <div class="row">
-          <h1 style="text-align: center"> Add New Comment to <%=cuisine.name%></h1>
-          <div style="width: 30%; margin:25px auto;">
+<% include ../partials/header.ejs %>
+<div class="container">
+  <div class="row justify-content-center">
+      <div class="col-md-12 text-center">
+          <h1> Add a New Comment to <%=cuisine.name%></h1>
+      </div>
+          <div class="col-xs-12 col-md-6 col-lg-4">
               <form action="/cuisines/<%=cuisine._id %>/comments" method="post">
                   <div class="form-group">
                        <input class="form-control" type="text" name="comment[text]" placeholder="text">
@@ -13,8 +13,8 @@
                      <button class="btn btn-lg btn-primary btn-block">Submit!</button>
                    </div>
               </form>
-               <a href="/cuisines"> Go Back</a>
+               <a href="/cuisines/<%= cuisine._id %>"> Go Back</a>
           </div>
-      </div>
   </div>
-  <% include ../partials/footer.ejs %> -->
+</div>
+<% include ../partials/footer.ejs %>

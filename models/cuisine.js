@@ -1,8 +1,8 @@
-  var mongoose = require("mongoose");
+  const mongoose = require("mongoose");
 
 
   // SCHEMA SETUP
-  var cuisineSchema =  mongoose.Schema({
+  const cuisineSchema =  mongoose.Schema({
       name: String,
       image: String,
       description: String,
@@ -24,13 +24,14 @@
               ref:"Comment"
           }
       ],
-      likes: [
-        {
-          type: mongoose.Schema.Types.ObjectId,
-          ref: "User",
-        }
-      ]
+    //   likes: [
+    //     {
+    //       type: mongoose.Schema.Types.ObjectId,
+    //       ref: "User",
+    //     }
+    //   ]
 
-  });
+  }); 
 
-  module.exports = mongoose.model("cuisine", cuisineSchema);
+ const Cuisine = mongoose.model("Cuisine", cuisineSchema);
+  module.exports = Cuisine;

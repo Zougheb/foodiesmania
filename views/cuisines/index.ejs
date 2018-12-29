@@ -1,34 +1,31 @@
 <% include  ../partials/header.ejs %>
 
 <div class="container" >
-
-  <div class="row">
-
-   <% cuisines.forEach(function(cuisines){%>
-
-       
-    <div class="col-lg-4 col-md-4 col-sm-6 mb-2">
-      <div class="card-deck">
-          <div class="card">
-              <img class="card-img-top" src="<%=cuisines.image %>" alt="<%= cuisines.name %>">
-              <div class="card-body">
-                <h5 class="card-title"><%= cuisines.name %></h5>
-                <p class="card-text">
-                  <em>
-                    <a href="/user/<%= cuisines.author.id %>">
-                    <strong>@<%= cuisines.author.username %></strong>
-                    </a>
-                    <span class="float-right"><%= moment(cuisines.createdAt).fromNow() %></span> 
-                  </em>
-                </p>
-                <p class="card-text"><%= cuisines.description.substring(0, 100) %>...<a href="/cuisines/<%= cuisines._id %>">Know More</a> </p>
-                
+    <div class="row">
+    <% cuisines.forEach(function(cuisines){%> 
+      <div class="col-lg-4 col-md-4 col-sm-6 mb-2">
+        <div class="card-deck">
+            <div class="card">
+              <a href="/cuisines/<%= cuisines._id %>">
+                <img class="card-img-top" src="<%=cuisines.image %>" alt="<%= cuisines.name %>">
+              </a>
+                <div class="card-body">                 
+                  <h5 class="card-title"><%= cuisines.name %></h5>
+                  <p class="card-text">
+                    <em>
+                      <a href="/user/<%= cuisines.author.id %>">
+                      <strong>@<%= cuisines.author.username %></strong>
+                      </a>
+                      <span class="float-right"><%= moment(cuisines.createdAt).fromNow() %></span> 
+                    </em>
+                  </p>
+                  <p class="card-text"><%= cuisines.description.substring(0, 100) %>...<a href="/cuisines/<%= cuisines._id %>">Know More</a> </p>
+                </div>
               </div>
-            </div>
+          </div>
         </div>
-      </div>
-           <% }); %>
-  </div>
+            <% }); %>
+    </div>
 </div>
 
 

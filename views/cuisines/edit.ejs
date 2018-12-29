@@ -2,10 +2,9 @@
 
 <div class="container"> 
   <div class="row justify-content-center">
-        <div class="col-md-12 text-center">
-            <h1>Edit <%= cuisine.name %></h1>
-        </div>
-          
+          <div class="col-md-12 text-center">
+              <h1>Edit <%= cuisine.name %></h1>
+          </div>
           <div class="col-xs-12 col-md-8 col-lg-6">
               <form action="/cuisines/<%= cuisine._id %>?_method=PUT" method="POST">
                   <div class="form-group ">
@@ -45,8 +44,6 @@
                  <a href="/cuisines/<%= cuisine._id %>">Go Back</a>
               </form>
           </div>
-             
-        
     </div>  
 </div>
 

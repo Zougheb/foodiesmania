@@ -8,9 +8,7 @@
             <% if(currentUser && cuisines.length > 0 && cuisines[0].author && cuisines[0].author.id.equals(currentUser._id) || currentUser && currentUser.isAdmin){ %>
 
             <form action="/user/profilePicUpload/<%= user.id%>?_method=PUT" method="post" enctype="multipart/form-data" target='picupload'>
-
                 <br>
-
                 <div class="form-group">
                     <label for="image">Image</label>
                     <input type="file" id="image-file" name="image-file" accept="image/*" required>
@@ -19,10 +17,10 @@
                     <input type="submit" value="Upload Now"  id='image-profile-upload' />
                 </div>
             </form>
+
             <% }%>
-
+            
             <hr> 
-
           <h1 class="jumbotron-heading"><%= user.username %>'s snaps:</h1>
           <p class="lead text-muted">Thanks for viewing my profile :)<br>and taking a chance to view my prefered moments with food. Click on any photo below for more information and add your comment!</p>
         </div>
